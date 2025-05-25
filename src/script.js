@@ -547,3 +547,4 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 });
+
