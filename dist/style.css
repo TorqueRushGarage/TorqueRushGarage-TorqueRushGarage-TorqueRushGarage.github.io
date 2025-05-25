@@ -12,18 +12,15 @@
   --radius: 10px;
   --transition: 0.4s ease;
 }
+
 body {
   margin: 0;
   font-family: "Orbitron", sans-serif;
   color: var(--text-light);
-  background: var(--bg-main);
-  background-image: url("https://www.dropbox.com/scl/fi/6jaau9rnpqpsb91o943hp/yurrr.webp?rlkey=tp8aspkxn70vbboyu15zf9r1f&st=3ge4q407&raw=1");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+  background: var(--bg-main)
+    url("https://www.dropbox.com/scl/fi/6jaau9rnpqpsb91o943hp/yurrr.webp?rlkey=tp8aspkxn70vbboyu15zf9r1f&st=3ge4q407&raw=1")
+    no-repeat center/cover fixed;
   scroll-behavior: smooth;
-}
-.section-title-centered { text-align: center !important; }ior: smooth;
 }
 
 .section-title-centered {
@@ -38,13 +35,11 @@ body {
 }
 .hero-bg {
   background: url("https://www.dropbox.com/scl/fi/e7x2mjxqh666i4lca1aly/DEEEEPPP.webp?rlkey=sgefyr74veexk0a9gtxr8u5ld&st=ilmfpg0b&raw=1")
-    center center/cover no-repeat;
+    center/cover no-repeat;
   filter: brightness(0.68) contrast(1.08);
   position: absolute;
   inset: 0;
   z-index: 1;
-  width: 100%;
-  height: 100%;
 }
 .hero-overlay {
   position: absolute;
@@ -58,10 +53,10 @@ body {
 }
 .hero-content {
   position: relative;
-  z-index: 3;
   top: 50%;
   transform: translateY(-50%);
   text-align: center;
+  z-index: 3;
   opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
 }
@@ -115,13 +110,27 @@ nav#navbar.solid {
   color: var(--accent-red);
   font-size: 1.5rem;
 }
+
+/* Make the right nav items a flex row and reorder so cart comes first */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#cart-icon-navbar {
+  order: 1;
+  position: relative;
+  cursor: pointer;
+}
 .nav-right a {
-  margin-left: 1.5rem;
+  order: 2;
   color: var(--accent-chrome);
   font-weight: 600;
   position: relative;
   transition: color var(--transition);
 }
+
+/* underline hover effect */
 .nav-right a::after {
   content: "";
   position: absolute;
@@ -139,17 +148,23 @@ nav#navbar.solid {
   color: var(--accent-red);
 }
 
-.cart-badge {
-  font-size: 0.9em;
+/* cart counter bubble */
+#cart-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
   min-width: 16px;
-  display: inline-block;
-  text-align: center;
-  background: red;
+  height: 16px;
+  background: var(--accent-red);
   color: #fff;
-  border-radius: 10px;
-  margin-left: 3px;
-  vertical-align: top;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 13px;
+  line-height: 16px;
+  pointer-events: none;
 }
+
+/* CART MODAL */
 .cart-modal-navbar {
   display: none;
   position: fixed;
@@ -159,7 +174,7 @@ nav#navbar.solid {
   background: var(--bg-panel);
   border: 2px solid var(--accent-chrome);
   border-radius: var(--radius);
-  box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
   min-width: 340px;
   max-width: 420px;
   max-height: 80vh;
@@ -169,7 +184,7 @@ nav#navbar.solid {
   display: block;
 }
 .cart-modal-navbar-content {
-  padding: 1.2rem 1.5rem 1rem 1.5rem;
+  padding: 1.2rem 1.5rem 1rem;
   color: var(--text-light);
   overflow-y: auto;
   max-height: 80vh;
@@ -182,7 +197,7 @@ nav#navbar.solid {
 }
 .cart-item {
   border-bottom: 1px solid #444;
-  padding: 0.5em 0 0.5em 0;
+  padding: 0.5em 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -208,13 +223,6 @@ nav#navbar.solid {
 }
 .remove-btn:hover {
   background: #b81818;
-}
-.cart-modal-actions {
-  margin-top: 1.2em;
-  display: flex;
-  gap: 0.7em;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .close {
   position: absolute;
@@ -409,7 +417,7 @@ nav#navbar.solid {
   color: var(--accent-ice);
 }
 
-/* Special coaching color classes for parenthesis/red/icy-blue hybrid */
+/* Coaching color classes */
 .text-red {
   color: var(--accent-red) !important;
 }
@@ -514,8 +522,6 @@ nav#navbar.solid {
     padding: 0.5rem 1rem;
   }
 }
-
-/* Utility Class For Section Title Centering (ensure this is here only once!) */
 
 /* Animation Keyframes */
 @keyframes fadeInUp {
