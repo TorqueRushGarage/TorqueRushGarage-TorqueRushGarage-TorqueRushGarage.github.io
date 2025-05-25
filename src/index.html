@@ -6,13 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="https://yourdomain.com/images/Torque-Rush-Garage-Inc.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <!-- Put any of your own CSS here or link to an external style.css -->
+  <style>
+    /* Example CSS – paste your full style.css here if desired */
+    :root {
+      --bg-main: #121214;
+      --bg-panel: #1e1f21;
+      --accent-red: #ff2a2a;
+      --accent-ice: #a0efff;
+      --accent-blue: #1e90ff;
+      --accent-lightblue: #5abeff;
+      --accent-purple: #9b59b6;
+      --accent-chrome: #bcc1c6;
+      --accent-yellow: #f1c40f;
+    }
+    body {
+      margin: 0;
+      background: var(--bg-main);
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+    }
+    /* …rest of your CSS… */
+  </style>
+
   <!-- LIVE PayPal Smart Buttons SDK -->
-  <script src="https://www.paypal.com/sdk/js?client-id=AVdSixfVEjcQEPFFyKNgISv0l6mojHBSxRur1cwRViupvln50q-lmK1NaYhiDhWbeTAVtW7l-0ujSbT2&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card" data-sdk-integration-source="developer-studio"></script>
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=AVdSixfVEjcQEPFFyKNgISv0l6mojHBSxRur1cwRViupvln50q-lmK1NaYhiDhWbeTAVtW7l-0ujSbT2&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"
+    data-sdk-integration-source="developer-studio"
+  ></script>
+
+  <!-- GSAP for animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
+
   <nav id="navbar" class="transparent">
     <div class="nav-left">
       <span class="nav-title">🔥 Torque Rush Garage 🔥</span>
@@ -25,11 +53,14 @@
       <a href="#bio">About Us</a>
       <div id="cart-icon-navbar" class="cart-icon" style="cursor:pointer;position:relative;">
         <svg viewBox="0 0 24 24" width="28" height="28" style="vertical-align:middle;fill:var(--accent-ice);">
-          <circle cx="9" cy="21" r="1.5" />
-          <circle cx="20" cy="21" r="1.5" />
-          <path d="M1 1h2l3.6 7.59-1.35 2.44A2.992 2.992 0 0 0 7 17h12v-2H7.42a1 1 0 0 1-.98-.8l.03-.12L8.1 13h7.45a2.993 2.993 0 0 0 2.68-1.69l3.24-6.28A1 1 0 0 0 20.1 3H5.21l-.94-2H1zm16.16 9l-2.76 5H8.53l2.04-3.67L17.16 10z" />
+          <circle cx="9" cy="21" r="1.5"/>
+          <circle cx="20" cy="21" r="1.5"/>
+          <path d="M1 1h2l3.6 7.59-1.35 2.44A2.992 2.992 0 0 0 7 17h12v-2H7.42a1 1 0 0 1-.98-.8l.03-.12L8.1 13h7.45a2.993 2.993 0 0 0 2.68-1.69l3.24-6.28A1 1 0 0 0 20.1 3H5.21l-.94-2H1zm16.16 9l-2.76 5H8.53l2.04-3.67L17.16 10z"/>
         </svg>
-        <span id="cart-count" class="cart-count" style="position:absolute;top:0;right:-10px;min-width:16px;height:16px;background:var(--accent-red);color:#fff;border-radius:50%;text-align:center;font-size:13px;line-height:16px;display:inline-block;">0</span>
+        <span id="cart-count" class="cart-count"
+          style="position:absolute;top:0;right:-10px;min-width:16px;height:16px;background:var(--accent-red);color:#fff;border-radius:50%;text-align:center;font-size:13px;line-height:16px;display:inline-block;">
+          0
+        </span>
       </div>
       <div id="cart-modal-navbar" class="cart-modal-navbar">
         <div class="cart-modal-navbar-content">
@@ -63,7 +94,7 @@
       <h2 class="section-title neon-red-text section-title-centered">Rev Up Your Ride</h2>
       <div style="text-align:center;">
         <p style="color:var(--accent-blue);">
-          Struggling to find the right tune that truly fits your driving style? Torque Rush Garage is here to help. Our experienced team provides a carefully curated and regularly updated collection of custom tunes designed specifically for your vehicle and needs. As new racing games come out, we expand our library so you always have reliable, effective setups to improve your performance and enjoy the race. We specialize in optimizing vehicle performance, Tailored for all online racing games.<br /><br />
+          Struggling to find the right tune that truly fits your driving style? Torque Rush Garage is here to help. Our experienced team provides a carefully curated and regularly updated collection of custom tunes designed specifically for your vehicle and needs. As new racing games come out, we expand our library so you always have reliable, effective setups to improve your performance and enjoy the race. We specialize in optimizing vehicle performance for all online racing games.<br><br>
           Whether you're racing on Console or PC, our advanced tuning delivers unmatched handling, speed, and control.
         </p>
       </div>
@@ -121,7 +152,7 @@
         </div>
         <div class="contact-card">
           <h3>Payments</h3>
-          <p>PayPal (Smart Buttons), Visa, MC, Debit, Credit, Stripe, Square</p>
+          <p>PayPal (Smart Buttons), Stripe, Square</p>
         </div>
       </div>
       <form id="contact-form" action="https://formspree.io/f/mnndrjqa" method="POST">
@@ -137,16 +168,11 @@
   <footer>
     <span>© 2025 Torque Rush Garage – All rights reserved</span>
     <p>
-      All sales of digital game add-ons and in-game items are final. We do not provide refunds, returns, or exchanges for any virtual goods—including but not limited to downloadable content (DLC), purchased online tune information, in-game currency, skins, battle passes, expansions, cosmetic items, boosts, or any other data or information used within online gaming applications.<br /><br />
+      All sales of digital game add-ons and in-game items are final. We do not provide refunds, returns, or exchanges for any virtual goods—including but not limited to downloadable content (DLC), purchased online tune information, in-game currency, skins, battle passes, expansions, cosmetic items, boosts, or any other data or information used within online gaming applications.<br><br>
       By completing a transaction, you confirm you understand that no refunds or credits will be issued under any circumstances.
     </p>
   </footer>
 
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-  <script src="script.js"></script>
+  <!-- Your JavaScript goes in the JS panel (see below) -->
 </body>
 </html>
