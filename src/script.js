@@ -88,7 +88,7 @@ const GAME_DATA = [
 const bundleTiers = [
   { id: "bundle1", name: "1 Car / 1 Track", type: "bundle", base: 22.99, code: "TANSDAANZ7H5L", features: ["Car tuning package", "Performance boost", "Optimized setups"] },
   { id: "bundle2", name: "1 Car / 2 Tracks or 2 Cars / 1 Track", type: "bundle", base: 25.99, code: "HZAK8CZM94384", features: ["Advanced handling tweaks", "Racing optimization"] },
-  { id: "bundle3", name: "1 Car / 3 Tracks or 3 Cars / 1 Track", type: "bundle", base: 32.99, code: "V55FRB25GM4QN", features: ["Optimized car & track combo", "Tailored tune for events", "Fast delivery", "--1 FREE TUNE FOR 1 MORE CAR UPON PURCHASE--"] }
+  { id: "bundle3", name: "1 Car / 3 Tracks or 3 Cars / 1 Track", type: "bundle", base: 32.99, code: "V55FRB25GM4QN", features: ["Optimized car & track combo", "Tailored tune for events", "Fast delivery"] }
 ];
 
 const tierTiers = [
@@ -125,18 +125,6 @@ const WHY_FEATURES = [
 const REVIEWS = [
   "“Immediately noticed better handling and corner control, they really take the time to understand your driving needs...” -SHxTLUCK",
   "“Top speed boost and smoother shifting, kept me in the top 3 at Daytona – brilliant adjustments!” -LowLeadAV",
-  "“My car finally feels the way it's supposed to respond when turning, braking, and accelerating!!.” -Wintrlol",
-  "“Lap consistency is way better now. Gaining anywhere from 2-5 seconds on my total lap times...” -FiveUp",
-  "“Gave me the edge in my last time trial tournament in Grand Turismo...” -B1g3n3rgy#7033",
-  "“Traction and throttle response improved massively...” -Retro302",
-  "“Used the Elite Package for 3 tracks with the NASCAR Mustang in Forza and crushed leaderboards all week.” -Snoboi92",
-  "“Gained a full tier in ranked races, finally back up to S Class!” -PartyRT",
-  "“Feels pro-level now, perfect for sweaty races, League Races, or simply just having fun online.” -EZ the Megas",
-  "“Super smooth ride, helps control power better, giving better response when coming into a turn.” -FTW RS99",
-  "“Beat my rival by 3 seconds after installing the tune they gave me for Indianapolis Brickyard A Class.” -NoChillNate54",
-  "“Didn’t think ACC could feel this responsive, with such minimal changes with the basic plan!!! Great Bang For the Buck!.” -NFSMWLEGEND",
-  "“Every gear hits right, acceleration is flawless, pulls feel like I've got real G-forces on my sim rig.” -GPoe66",
-  "“My drifting improved tenfold. Finally feels dialed in...” -FSCC FATAL",
   "“It’s like racing on rails – total stability upgrade.” -OG SOUR D 13"
 ];
 
@@ -150,9 +138,13 @@ function updateCartCount() {
 }
 
 function composeCartName(product, extra) {
-  return [product.name, extra?.tier ? `+ ${extra.tier}` : '', extra?.game || '', extra?.vehicle || '', extra?.track || '']
-    .filter(Boolean)
-    .join(' / ');
+  return [
+    product.name,
+    extra?.tier ? `+ ${extra.tier}` : '',
+    extra?.game || '',
+    extra?.vehicle || '',
+    extra?.track || ''
+  ].filter(Boolean).join(' / ');
 }
 
 function renderCart() {
@@ -176,6 +168,7 @@ function renderCart() {
       "beforeend",
       `<div class="cart-item">
          <b>${item.displayName}</b>
+         ${item.notes ? `<div style="color:#ffd;">Note: ${item.notes.replace(/</g,"&lt;").replace(/>/g,"&gt;")}</div>` : ""}
          <div><span style="color:red;">$${item.price.toFixed(2)}</span></div>
          <button class="remove-btn" onclick="removeCart(${i})">Remove</button>
        </div>`
@@ -223,7 +216,7 @@ function renderPricing() {
            <option value="">Select Tier</option>
            ${tierOptions}
          </select>
-         <textarea id="bundle-notes-${i}" maxlength="250" rows="2" placeholder="Add notes (max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
+         <textarea id="bundle-notes-${i}" maxlength="250" rows="2" placeholder="Let us know your specs you have already,or any details we should know! Even unlisted vehicles.(max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
          <button id="btn-bundle-${i}" disabled onclick="addBundleTier(${i})">Add To Cart</button>
        </div>`
     );
@@ -246,7 +239,7 @@ function renderPricing() {
          </select>
          <select id="car-flat-${idx}" disabled><option>Select Vehicle</option></select>
          <select id="track-flat-${idx}" disabled><option>Select Track</option></select>
-         <textarea id="flat-notes-${idx}" maxlength="250" rows="2" placeholder="Add notes (max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
+         <textarea id="flat-notes-${idx}" maxlength="250" rows="2" placeholder="Let us know your specs you have already,or any details we should know! Even unlisted vehicles.(max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
          <button id="btn-flat-${idx}" disabled onclick="addFlat(${idx})">Add To Cart</button>
        </div>`
     );
@@ -547,4 +540,3 @@ document.addEventListener("DOMContentLoaded", () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 });
-
