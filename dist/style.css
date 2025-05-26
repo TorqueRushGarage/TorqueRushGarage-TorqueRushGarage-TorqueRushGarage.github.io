@@ -1,3 +1,4 @@
+/* script.css */
 :root {
   --bg-main: #121214;
   --bg-panel: #1e1f21;
@@ -18,7 +19,7 @@ body {
   font-family: "Orbitron", sans-serif;
   color: var(--text-light);
   background: var(--bg-main)
-    url("https://www.dropbox.com/scl/fi/6jaau9rnpqpsb91o943hp/yurrr.webp?rlkey=tp8aspkxn70vbboyu15zf9r1f&st=3ge4q407&raw=1")
+    url("https://assets.codepen.io/14563680/TRG%20garage.webp?format=auto")
     no-repeat center/cover fixed;
   scroll-behavior: smooth;
 }
@@ -30,13 +31,11 @@ body {
 /* HERO HEADER */
 #hero {
   position: relative;
-  height: 100vh;
+  height: 50vh;
   overflow: hidden;
 }
 .hero-bg {
-  background: url("https://www.dropbox.com/scl/fi/e7x2mjxqh666i4lca1aly/DEEEEPPP.webp?rlkey=sgefyr74veexk0a9gtxr8u5ld&st=ilmfpg0b&raw=1")
-    center/cover no-repeat;
-  filter: brightness(0.68) contrast(1.08);
+  background: none;
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -53,7 +52,7 @@ body {
 }
 .hero-content {
   position: relative;
-  top: 50%;
+  top: .05%;
   transform: translateY(-50%);
   text-align: center;
   z-index: 3;
@@ -61,7 +60,7 @@ body {
   animation: fadeInUp 1s ease-out forwards;
 }
 .main-hero-title {
-  font-size: 3.6rem;
+  font-size: 2.8rem;
   color: var(--accent-red);
   text-shadow: 0 0 8px rgba(255, 43, 43, 0.7);
 }
