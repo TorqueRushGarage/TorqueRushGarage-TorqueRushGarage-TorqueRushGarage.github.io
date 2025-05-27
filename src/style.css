@@ -18,10 +18,21 @@ body {
   margin: 0;
   font-family: "Orbitron", sans-serif;
   color: var(--text-light);
-  background: var(--bg-main)
-    url("https://assets.codepen.io/14563680/TRG%20garage.webp?format=auto")
-    no-repeat center/cover fixed;
+  background-color: var(--bg-main);
+  background-image: url("https://assets.codepen.io/14563680/ya.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
   scroll-behavior: smooth;
+}
+
+/* On mobile, disable fixed attachment to prevent distortion */
+@media (max-width: 767px) {
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+  }
 }
 
 .section-title-centered {
@@ -109,8 +120,6 @@ nav#navbar.solid {
   color: var(--accent-red);
   font-size: 1.5rem;
 }
-
-/* Make the right nav items a flex row and reorder so cart comes first */
 .nav-right {
   display: flex;
   align-items: center;
@@ -128,8 +137,6 @@ nav#navbar.solid {
   position: relative;
   transition: color var(--transition);
 }
-
-/* underline hover effect */
 .nav-right a::after {
   content: "";
   position: absolute;
@@ -146,8 +153,6 @@ nav#navbar.solid {
 .nav-right a:hover {
   color: var(--accent-red);
 }
-
-/* cart counter bubble */
 #cart-count {
   position: absolute;
   top: -4px;
@@ -162,8 +167,6 @@ nav#navbar.solid {
   line-height: 16px;
   pointer-events: none;
 }
-
-/* CART MODAL */
 .cart-modal-navbar {
   display: none;
   position: fixed;
@@ -257,7 +260,6 @@ nav#navbar.solid {
   color: gold;
   text-align: center;
 }
-
 .fade-section {
   opacity: 0;
   transform: translateY(40px);
@@ -302,8 +304,7 @@ nav#navbar.solid {
 .why-feature-desc {
   color: var(--accent-ice);
   text-align: center;
-  margin-bottom: 0.1em;
-  margin-top: 0.1em;
+  margin: 0.1em 0;
   font-size: 1.07em;
 }
 @media (max-width: 660px) {
@@ -415,8 +416,6 @@ nav#navbar.solid {
 .custom-intro span.blue-highlight {
   color: var(--accent-ice);
 }
-
-/* Coaching color classes */
 .text-red {
   color: var(--accent-red) !important;
 }
@@ -424,6 +423,7 @@ nav#navbar.solid {
   color: var(--accent-ice) !important;
 }
 
+/* Main Highlights & Photos */
 .highlights-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -452,6 +452,32 @@ nav#navbar.solid {
   height: 100%;
 }
 
+/* V.R.A Highlights 4×3 grid */
+.vra-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 960px;
+}
+.vra-card {
+  position: relative;
+  overflow: hidden;
+  background: #1a1b1d;
+  border-radius: var(--radius);
+  min-height: 0;
+}
+.vra-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.vra-card.empty {
+  visibility: hidden;
+}
+
+/* Contact Form */
 #contact-form {
   max-width: none;
   width: 100%;
@@ -485,6 +511,7 @@ nav#navbar.solid {
   background: #005f9e;
 }
 
+/* Checkout Buttons */
 .checkout-btn.paypal {
   background: var(--accent-blue);
 }
@@ -505,10 +532,14 @@ nav#navbar.solid {
   .highlights-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .vra-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 600px) {
   .pricing-grid,
-  .highlights-grid {
+  .highlights-grid,
+  .vra-grid {
     grid-template-columns: 1fr;
     gap: 0.7rem;
   }
