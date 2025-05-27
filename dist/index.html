@@ -8,7 +8,6 @@
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<!-- script.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,24 +16,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="https://yourdomain.com/images/Torque-Rush-Garage-Inc.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="script.css">
-  <!-- LIVE PayPal Smart Buttons SDK -->
-  <script
-    src="https://www.paypal.com/sdk/js?client-id=ASaMRA7dueJUOWOsee1wlAyXxln5o9L4j3j0hX2QyUbvhLat-ki7jarpEH9dsr8nQ2dE6nP8FDTXjDED&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"
-    data-sdk-integration-source="developer-studio"
-  ></script>
+  <link rel="stylesheet" href="script.css" />
+  <!-- LIVE PayPal Smart Buttons SDK (Production) -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AVdSixfVEjcQEPFFyKNgISv0l6mojHBSxRur1cwRViupvln50q-lmK1NaYhiDhWbeTAVtW7l-0ujSbT2&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card" data-sdk-integration-source="developer-studio"></script>
   <!-- GSAP for animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-    <!-- Vercel Speed Insights – as per https://vercel.com/docs/speed-insights/quickstart -->
-  <script
-    defer
-    data-token="YOUR_PROJECT_TOKEN"
-    src="https://cdn.jsdelivr.net/npm/@vercel/speed-insights@latest/client.js"
-  ></script>
+  <!-- Vercel Speed Insights (analytics) -->
+  <script defer data-token="YOUR_PROJECT_TOKEN" src="https://cdn.jsdelivr.net/npm/@vercel/speed-insights@latest/client.js"></script>
 </head>
 <body>
-
   <nav id="navbar" class="transparent">
     <div class="nav-left">
       <span class="nav-title">🔥 Torque Rush Garage 🔥</span>
@@ -51,17 +42,16 @@
           <circle cx="20" cy="21" r="1.5"/>
           <path d="M1 1h2l3.6 7.59-1.35 2.44A2.992 2.992 0 0 0 7 17h12v-2H7.42a1 1 0 0 1-.98-.8l.03-.12L8.1 13h7.45a2.993 2.993 0 0 0 2.68-1.69l3.24-6.28A1 1 0 0 0 20.1 3H5.21l-.94-2H1zm16.16 9l-2.76 5H8.53l2.04-3.67L17.16 10z"/>
         </svg>
-        <span id="cart-count" class="cart-count"
-          style="position:absolute;top:0;right:-10px;min-width:16px;height:16px;background:var(--accent-red);color:#fff;border-radius:50%;text-align:center;font-size:13px;line-height:16px;display:inline-block;">
-          0
-        </span>
+        <span id="cart-count" class="cart-count" style="position:absolute;top:0;right:-10px;min-width:16px;height:16px;background:var(--accent-red);color:#fff;border-radius:50%;text-align:center;font-size:13px;line-height:16px;display:inline-block;">0</span>
       </div>
+      <!-- CART MODAL with PayPal button container -->
       <div id="cart-modal-navbar" class="cart-modal-navbar">
         <div class="cart-modal-navbar-content">
           <span id="close-cart-modal-navbar" class="close">&times;</span>
           <h2>Your Cart</h2>
           <div id="cart-items"></div>
           <div id="cart-total"></div>
+          <!-- PAYPAL BUTTONS MUST RENDER HERE -->
           <div id="paypal-button-container"></div>
           <p id="result-message"></p>
         </div>
@@ -131,33 +121,31 @@
     <section id="featured-highlight" class="scroll-section fade-section content-box">
       <h2 class="section-title neon-red-text section-title-centered">Featured Partner/Affiliate Highlights -V.R.A Virtual Racing Association</h2>
       <div style="text-align: center;">
-              <h2 class="section-title neon-red-text section-title-centered">-If Interested in Community or Racing</h2>
-
-  <a href="https://discord.gg/rRs4gg99"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="
-       display: inline-block;
-       padding: 12px 28px;
-       background: linear-gradient(
-         90deg,
-         #00d1ff 0%,    /* Teal */
-         #00ffff 33%,   /* Cyan */
-         #ffffff 66%,   /* White */
-         #8a8a8a 100%   /* Cool Grey */
-       );
-       color: #000;                  /* Black text */
-       font-weight: bold;
-       font-size: 1.15rem;
-       border-radius: 8px;
-       text-decoration: none;
-       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-       transition: opacity 0.2s, box-shadow 0.2s;
-     ">
-    Join our Discord - V.R.A.
-  </a>
-</div>
-
+        <h2 class="section-title neon-red-text section-title-centered">-If Interested in Community or Racing</h2>
+        <a href="https://discord.gg/rRs4gg99"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(
+              90deg,
+              #00d1ff 0%,    /* Teal */
+              #00ffff 33%,   /* Cyan */
+              #ffffff 66%,   /* White */
+              #8a8a8a 100%   /* Cool Grey */
+            );
+            color: #000;
+            font-weight: bold;
+            font-size: 1.15rem;
+            border-radius: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+            transition: opacity 0.2s, box-shadow 0.2s;
+          ">
+          Join our Discord - V.R.A.
+        </a>
+      </div>
       <h2 class="section-title neon-red-text section-title-centered">Season Schedule</h2>
       <section id="vra-season3" class="scroll-section fade-section content-box">
         <h2 class="section-title neon-red-text section-title-centered">V.R.A. Season 3</h2>
@@ -177,7 +165,6 @@
           />
         </div>
       </section>
-
       <h2 class="section-title neon-red-text section-title-centered">V.R.A. Season 2 Championship</h2>
       <div class="video-wrap" style="width: 100%; padding-bottom: 56.25%; position: relative; margin: 0;">
         <iframe
@@ -187,7 +174,6 @@
           style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
         ></iframe>
       </div>
-
       <h2 class="section-title neon-red-text section-title-centered">V.R.A Highlights</h2>
       <div class="vra-grid">
         <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA6.png" alt="VRA6"></div>
@@ -230,67 +216,13 @@
     <section id="contact" class="scroll-section fade-section">
       <h2 class="section-title neon-red-text section-title-centered">Contact Us</h2>
       <div class="contact-grid">
-
         <div class="contact-card">
           <h3>Supported Platforms</h3>
-          <span style="
-            display:inline-block;
-            padding:12px 28px;
-            background:linear-gradient(90deg, #107c10 75%, #111 100%);
-            color:#fff;
-            font-weight:bold;
-            font-size:1.08rem;
-            border-radius:7px;
-            letter-spacing:1px;
-            opacity:0.88;
-            cursor:not-allowed;
-            user-select:none;
-            box-shadow:0 2px 8px rgba(0,0,0,0.14);
-          ">Xbox</span>
-          <span style="
-            display:inline-block;
-            padding:12px 28px;
-            background:linear-gradient(90deg, #003087 75%, #111 100%);
-            color:#fff;
-            font-weight:bold;
-            font-size:1.08rem;
-            border-radius:7px;
-            letter-spacing:1px;
-            opacity:0.88;
-            cursor:not-allowed;
-            user-select:none;
-            box-shadow:0 2px 8px rgba(0,0,0,0.14);
-          ">PlayStation</span>
-          <span style="
-            display:inline-block;
-            padding:12px 28px;
-            background:linear-gradient(90deg, #60aaff 0%, #fff 65%, #111 100%);
-            color:#111;
-            font-weight:bold;
-            font-size:1.08rem;
-            border-radius:7px;
-            letter-spacing:1px;
-            opacity:0.88;
-            cursor:not-allowed;
-            user-select:none;
-            box-shadow:0 2px 8px rgba(0,0,0,0.13);
-          ">Steam</span>
-          <span style="
-            display:inline-block;
-            padding:12px 28px;
-            background:linear-gradient(90deg, #0067c5 0%, #34a853 100%);
-            color:#fff;
-            font-weight:bold;
-            font-size:1.08rem;
-            border-radius:7px;
-            letter-spacing:1px;
-            opacity:0.92;
-            cursor:not-allowed;
-            user-select:none;
-            box-shadow:0 2px 8px rgba(0,0,0,0.12);
-          ">PC</span>
+          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #107c10 75%, #111 100%);color:#fff;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.88;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.14);">Xbox</span>
+          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #003087 75%, #111 100%);color:#fff;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.88;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.14);">PlayStation</span>
+          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #60aaff 0%, #fff 65%, #111 100%);color:#111;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.88;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.13);">Steam</span>
+          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #0067c5 0%, #34a853 100%);color:#fff;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.92;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.12);">PC</span>
         </div>
-
         <div class="contact-card">
           <h3>Our Social Links</h3>
           <a href="https://www.facebook.com/profile.php?id=61576602124829" 
@@ -317,7 +249,6 @@
             Instagram – Torque Rush Garage
           </a>
         </div>
-
         <div class="contact-card">
           <h3>Partners/Affiliates</h3>
         </div>
@@ -360,21 +291,17 @@
           </a>
         </section>
         <h3></h3>
-
         <div class="contact-card">
           <h3>Payments</h3>
           <span style="display:inline-block; padding:12px 28px; background-color:#003087; color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.7; cursor:not-allowed; user-select:none; margin-right:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">PayPal</span>
           <span style="display:inline-block; padding:12px 28px; background-color:#1a1f71; color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.78; cursor:not-allowed; user-select:none; margin-right:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">Visa</span>
           <span style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#2563eb 0%,#ff9800 55%,#ffe066 100%); color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.85; cursor:not-allowed; user-select:none; box-shadow:0 2px 8px rgba(0,0,0,0.08);">Mastercard</span>
         </div>
-
         <div class="contact-card">
           <h3>Contact</h3>
           <p>Feedback | Questions | Concerns</p>
         </div>
-
       </div>
-
       <form id="contact-form" action="https://formspree.io/f/mnndrjqa" method="POST">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="_replyto" placeholder="Your Email" required />
@@ -392,7 +319,8 @@
       By completing a transaction, you confirm you understand that no refunds or credits will be issued under any circumstances.
     </p>
   </footer>
-
+  <!-- YOUR CUSTOM SCRIPT FILE, must handle cart, modal, and PayPal button rendering logic -->
+  <script src="script.js"></script>
 </body>
 </html>
 <!-- partial -->
