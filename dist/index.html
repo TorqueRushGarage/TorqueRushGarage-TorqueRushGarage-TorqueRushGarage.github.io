@@ -17,38 +17,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="https://yourdomain.com/images/Torque-Rush-Garage-Inc.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-  <!-- Put any of your own CSS here or link to an external style.css -->
-  <style>
-    /* Example CSS – paste your full style.css here if desired */
-    :root {
-      --bg-main: #121214;
-      --bg-panel: #1e1f21;
-      --accent-red: #ff2a2a;
-      --accent-ice: #a0efff;
-      --accent-blue: #1e90ff;
-      --accent-lightblue: #5abeff;
-      --accent-purple: #9b59b6;
-      --accent-chrome: #bcc1c6;
-      --accent-yellow: #f1c40f;
-    }
-    body {
-      margin: 0;
-      background: var(--bg-main)
-        url("https://assets.codepen.io/14563680/ya.webp")
-        no-repeat center/cover fixed;
-      color: #fff;
-      font-family: 'Orbitron', sans-serif;
-    }
-    /* …rest of your CSS… */
-  </style>
-
+  <link rel="stylesheet" href="script.css">
   <!-- LIVE PayPal Smart Buttons SDK -->
- <script
-  src="https://www.paypal.com/sdk/js?client-id=ASaMRA7dueJUOWOsee1wlAyXxln5o9L4j3j0hX2QyUbvhLat-ki7jarpEH9dsr8nQ2dE6nP8FDTXjDED&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"
-  data-sdk-integration-source="developer-studio"
-></script>
-
-
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=ASaMRA7dueJUOWOsee1wlAyXxln5o9L4j3j0hX2QyUbvhLat-ki7jarpEH9dsr8nQ2dE6nP8FDTXjDED&buyer-country=US&currency=USD&components=buttons&enable-funding=venmo,paylater,card"
+    data-sdk-integration-source="developer-studio"
+  ></script>
   <!-- GSAP for animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
@@ -111,6 +85,19 @@
           Struggling to find the right tune that truly fits your driving style? Torque Rush Garage is here to help. Our experienced team provides a carefully curated and regularly updated collection of custom tunes designed specifically for your vehicle and needs. As new racing games come out, we expand our library so you always have reliable, effective setups to improve your performance and enjoy the race. We specialize in optimizing vehicle performance for all online racing games.<br><br>
           Whether you're racing on Console or PC, our advanced tuning delivers unmatched handling, speed, and control.
         </p>
+        <img
+          src="https://assets.codepen.io/14563680/yurrr.webp"
+          alt="Garage tuning scene"
+          loading="lazy"
+          style="
+            width: 100%;
+            height: auto;
+            margin-top: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+            display: block;
+          "
+        />
       </div>
     </section>
 
@@ -135,6 +122,56 @@
       <div class="pricing-grid" id="pricing-tiers"></div>
     </section>
 
+    <section id="featured-highlight" class="scroll-section fade-section content-box">
+      <h2 class="section-title neon-red-text section-title-centered">Featured Partner/Affiliate Highlights</h2>
+      <h2 class="section-title neon-red-text section-title-centered">V.R.A Virtual Racing Association</h2>
+      <h2 class="section-title neon-red-text section-title-centered">Season Schedule</h2>
+      <section id="vra-season3" class="scroll-section fade-section content-box">
+        <h2 class="section-title neon-red-text section-title-centered">V.R.A. Season 3</h2>
+        <div class="image-section" style="text-align:center; margin-top:1rem;">
+          <img
+            src="https://assets.codepen.io/14563680/VRA%20season%203.png"
+            alt="V.R.A. Season 3 Banner"
+            loading="lazy"
+            style="
+              width: 100%;
+              height: auto;
+              max-width: 100%;
+              border-radius: var(--radius);
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+              display: inline-block;
+            "
+          />
+        </div>
+      </section>
+
+      <h2 class="section-title neon-red-text section-title-centered">V.R.A. Season 2 Championship</h2>
+      <div class="video-wrap" style="width: 100%; padding-bottom: 56.25%; position: relative; margin: 0;">
+        <iframe
+          src="https://www.youtube.com/embed/b2HX8JgIzqs"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
+        ></iframe>
+      </div>
+
+      <h2 class="section-title neon-red-text section-title-centered">V.R.A Highlights</h2>
+      <div class="vra-grid">
+        <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA6.png" alt="VRA6"></div>
+        <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA5.png" alt="VRA5"></div>
+        <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA4.png" alt="VRA4"></div>
+        <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA3.png" alt="VRA3"></div>
+        <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA2.png" alt="VRA2"></div>
+        <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA1.png" alt="VRA1"></div>
+        <div class="vra-card empty"></div>
+        <div class="vra-card empty"></div>
+        <div class="vra-card empty"></div>
+        <div class="vra-card empty"></div>
+        <div class="vra-card empty"></div>
+        <div class="vra-card empty"></div>
+      </div>
+    </section>
+
     <section id="highlights" class="scroll-section fade-section">
       <h2 class="section-title neon-red-text section-title-centered">Highlights & Photos</h2>
       <div class="highlights-grid">
@@ -154,320 +191,157 @@
           <h3>Assetto Corsa Competizione</h3>
           <div class="video-wrap"><iframe src="https://www.youtube.com/embed/N7lBqLqUyAQ" allowfullscreen></iframe></div>
         </div>
-        </section>
-          
-      
-    
-    
+      </div>
+    </section>
 
     <section id="contact" class="scroll-section fade-section">
       <h2 class="section-title neon-red-text section-title-centered">Contact Us</h2>
       <div class="contact-grid">
+
         <div class="contact-card">
           <h3>Supported Platforms</h3>
-          <!-- Xbox Non-Clickable Button: Xbox Green with Black -->
-<span style="
-  display:inline-block;
-  padding:12px 28px;
-  background:linear-gradient(90deg, #107c10 75%, #111 100%);
-  color:#fff;
-  font-weight:bold;
-  font-size:1.08rem;
-  border-radius:7px;
-  letter-spacing:1px;
-  opacity:0.88;
-  cursor:not-allowed;
-  user-select:none;
-  box-shadow:0 2px 8px rgba(0,0,0,0.14);
-">
-  Xbox
-</span>
-          
-          <!-- PlayStation Non-Clickable Button: PlayStation Blue with Black -->
-<span style="
-  display:inline-block;
-  padding:12px 28px;
-  background:linear-gradient(90deg, #003087 75%, #111 100%);
-  color:#fff;
-  font-weight:bold;
-  font-size:1.08rem;
-  border-radius:7px;
-  letter-spacing:1px;
-  opacity:0.88;
-  cursor:not-allowed;
-  user-select:none;
-  box-shadow:0 2px 8px rgba(0,0,0,0.14);
-">
-  PlayStation
-</span>
-          
-          <!-- Steam Non-Clickable Button: Light Blue, White, Black Gradient -->
-<span style="
-  display:inline-block;
-  padding:12px 28px;
-  background:linear-gradient(90deg, #60aaff 0%, #fff 65%, #111 100%);
-  color:#111;
-  font-weight:bold;
-  font-size:1.08rem;
-  border-radius:7px;
-  letter-spacing:1px;
-  opacity:0.88;
-  cursor:not-allowed;
-  user-select:none;
-  box-shadow:0 2px 8px rgba(0,0,0,0.13);
-">
-  Steam
-</span>
-          
-          <!-- PC Non-Clickable Button: Windows Blue and Chrome Green -->
-<span style="
-  display:inline-block;
-  padding:12px 28px;
-  background:linear-gradient(90deg, #0067c5 0%, #34a853 100%);
-  color:#fff;
-  font-weight:bold;
-  font-size:1.08rem;
-  border-radius:7px;
-  letter-spacing:1px;
-  opacity:0.92;
-  cursor:not-allowed;
-  user-select:none;
-  box-shadow:0 2px 8px rgba(0,0,0,0.12);
-">
-  PC
-</span>
-
+          <span style="
+            display:inline-block;
+            padding:12px 28px;
+            background:linear-gradient(90deg, #107c10 75%, #111 100%);
+            color:#fff;
+            font-weight:bold;
+            font-size:1.08rem;
+            border-radius:7px;
+            letter-spacing:1px;
+            opacity:0.88;
+            cursor:not-allowed;
+            user-select:none;
+            box-shadow:0 2px 8px rgba(0,0,0,0.14);
+          ">Xbox</span>
+          <span style="
+            display:inline-block;
+            padding:12px 28px;
+            background:linear-gradient(90deg, #003087 75%, #111 100%);
+            color:#fff;
+            font-weight:bold;
+            font-size:1.08rem;
+            border-radius:7px;
+            letter-spacing:1px;
+            opacity:0.88;
+            cursor:not-allowed;
+            user-select:none;
+            box-shadow:0 2px 8px rgba(0,0,0,0.14);
+          ">PlayStation</span>
+          <span style="
+            display:inline-block;
+            padding:12px 28px;
+            background:linear-gradient(90deg, #60aaff 0%, #fff 65%, #111 100%);
+            color:#111;
+            font-weight:bold;
+            font-size:1.08rem;
+            border-radius:7px;
+            letter-spacing:1px;
+            opacity:0.88;
+            cursor:not-allowed;
+            user-select:none;
+            box-shadow:0 2px 8px rgba(0,0,0,0.13);
+          ">Steam</span>
+          <span style="
+            display:inline-block;
+            padding:12px 28px;
+            background:linear-gradient(90deg, #0067c5 0%, #34a853 100%);
+            color:#fff;
+            font-weight:bold;
+            font-size:1.08rem;
+            border-radius:7px;
+            letter-spacing:1px;
+            opacity:0.92;
+            cursor:not-allowed;
+            user-select:none;
+            box-shadow:0 2px 8px rgba(0,0,0,0.12);
+          ">PC</span>
         </div>
+
         <div class="contact-card">
           <h3>Our Social Links</h3>
-          
-          <!-- Facebook Profile Link Button -->
-<a href="https://www.facebook.com/profile.php?id=61576602124829" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   style="
-     display:inline-block;  
-     padding:12px 28px;  
-     background:linear-gradient(100deg, #ff4c00 0%, #00d1ff 60%, #0970b3 100%);  
-     color:#fff;  
-     font-weight:bold;  
-     font-size:1.15rem;  
-     border-radius:10px;  
-     letter-spacing:1px;  
-     text-shadow:0 2px 8px #111a23, 0 0px 10px #ff4c00;  
-     box-shadow:0 3px 20px 0 rgba(0,0,0,0.35), 0 1.5px 10px 0 #00d1ff33;  
-     text-decoration:none;  
-     transition:opacity 0.22s, box-shadow 0.22s;  
-   ">
-  Facebook – Torque Rush Garage
-</a>
-<!-- Email Link Button: Matching your Facebook button colors -->
-<a href="mailto:torquerushgarage@yahoo.com"
-   style="
-     display: inline-block;
-     padding: 12px 28px;
-     background: linear-gradient(100deg, #ff4c00 0%, #00d1ff 60%, #0970b3 100%);
-     color: #fff;
-     font-weight: bold;
-     font-size: 1.15rem;
-     border-radius: 10px;
-     letter-spacing: 1px;
-     text-shadow: 0 2px 8px #111a23, 0 0px 10px #ff4c00;
-     box-shadow: 0 3px 20px 0 rgba(0,0,0,0.35), 0 1.5px 10px 0 #00d1ff33;
-     text-decoration: none;
-     transition: opacity 0.22s, box-shadow 0.22s;
-   ">
-  Email – Torque Rush Garage
-</a>
-
-
-
+          <a href="https://www.facebook.com/profile.php?id=61576602124829" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             style="display:inline-block; padding:12px 28px; background:linear-gradient(100deg, #ff4c00 0%, #00d1ff 60%, #0970b3 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:10px; letter-spacing:1px; text-shadow:0 2px 8px #111a23,0 0px 10px #ff4c00; box-shadow:0 3px 20px 0 rgba(0,0,0,0.35),0 1.5px 10px 0 #00d1ff33; text-decoration:none; transition:opacity 0.22s,box-shadow 0.22s;">
+            Facebook – Torque Rush Garage
+          </a>
+          <a href="mailto:torquerushgarage@yahoo.com" 
+             style="display:inline-block; padding:12px 28px; background:linear-gradient(100deg, #ff4c00 0%, #00d1ff 60%, #0970b3 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:10px; letter-spacing:1px; text-shadow:0 2px 8px #111a23,0 0px 10px #ff4c00; box-shadow:0 3px 20px 0 rgba(0,0,0,0.35),0 1.5px 10px 0 #00d1ff33; text-decoration:none; transition:opacity 0.22s,box-shadow 0.22s;">
+            Email – Torque Rush Garage
+          </a>
           <h3></h3>
-          <!-- Discord Invite Link Button: Torque Rush Garage Colors -->
-<a href="https://discord.gg/UeKCdQdk" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   style="
-     display:inline-block;  
-     padding:12px 28px;  
-     background:linear-gradient(90deg, #00d1ff 0%, #0970b3 45%, #ff4c00 100%);  
-     color:#fff;  
-     font-weight:bold;  
-     font-size:1.15rem;  
-     border-radius:10px;  
-     text-decoration:none;  
-     letter-spacing:1px;  
-     text-shadow:0 2px 8px #091c31, 0 0px 12px #ff4c00;  
-     box-shadow:0 3px 20px 0 rgba(0,0,0,0.35), 0 1.5px 10px 0 #ff4c0033;  
-     transition:opacity 0.22s, box-shadow 0.22s;  
-   ">
-  Discord – Torque Rush Garage
-</a>
+          <a href="https://discord.gg/UeKCdQdk" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg, #00d1ff 0%,#0970b3 45%,#ff4c00 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:10px; letter-spacing:1px; text-shadow:0 2px 8px #091c31,0 0px 12px #ff4c00; box-shadow:0 3px 20px 0 rgba(0,0,0,0.35),0 1.5px 10px 0 #ff4c0033; text-decoration:none; transition:opacity 0.22s,box-shadow 0.22s;">
+            Discord – Torque Rush Garage
+          </a>
+          <a href="https://www.instagram.com/torquerushgarage/" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#fd5949,#d6249f,#285AEB); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:8px; text-decoration:none; transition:opacity 0.2s;">
+            Instagram – Torque Rush Garage
+          </a>
+        </div>
 
-          <!-- Instagram Profile Link Button -->
-<a href="https://www.instagram.com/torquerushgarage/" 
-   target="_blank" 
-   rel="noopener noreferrer" 
-   style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg,#fd5949,#d6249f,#285AEB);color:#fff;font-weight:bold;font-size:1.15rem;border-radius:8px;text-decoration:none;transition:opacity 0.2s;">
-  Instagram - Torque Rush Garage
-</a>
-
-          <div class="contact-card">
-            <h3>Partners/Affiliates</h3>
-          </div>
-<!-- Discord Invite Link Button: Teal → White → Grey Gradient with Black Text and Cool-Grey Shadow -->
-<section class="contact-card">
-  <a
-    href="https://discord.gg/rRs4gg99"
-    target="_blank"
-    rel="noopener noreferrer"
-    style="
-      display: inline-block;
-      padding: 12px 28px;
-      background: linear-gradient(
-        90deg,
-        #00d1ff 0%,    /* Teal */
-        #ffffff 50%,   /* White */
-        #8a8a8a 80%    /* Cool Grey */
-      );
-      color: #000;
-      font-weight: bold;
-      font-size: 1.15rem;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(128, 128, 128, 0.6);
-      transition: opacity 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.03em;
-      outline: none;
-    "
-    onmouseover="this.style.opacity='0.90'; this.style.boxShadow='0 8px 24px rgba(21,242,253,0.18), 0 0 0 4px #8a8a8a66';"
-    onmouseout="this.style.opacity='1'; this.style.boxShadow='0 4px 12px rgba(128, 128, 128, 0.6)';"
-  >
-    <img
-      src="https://assets.codepen.io/14563680/IMG_5753.png"
-      alt="Full‐width Garage Scene"
-      loading="lazy"
-      draggable="false"
-      style="
-        display: block;
-        width: 100%;
-        height: auto;
-        border-radius: 4px;
-        margin-bottom: 8px;
-      "
-    />
-    Discord – V.R.A. (Virtual Racing Association) Link
-  </a>
-</section>
-
-
-          <h3></h3>
-          
-       <section class="contact-card">
-  <a
-    href="https://discord.gg/9VUGw8Hs"
-    target="_blank"
-    rel="noopener noreferrer"
-    style="
-      display: inline-block;
-      padding: 12px 28px;
-      background: linear-gradient(
-        90deg,
-        #7b2ff2 0%,    /* Purple */
-        #15f2fd 75%,   /* Teal/Cyan */
-        #fd425b 100%   /* Red touch */
-      );
-      color: #fff;                                /* White text */
-      font-weight: bold;
-      font-size: 1.15rem;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow: 0 4px 16px rgba(123, 47, 242, 0.20);  /* Purple shadow */
-      transition: opacity 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.03em;
-      outline: none;
-    "
-    onmouseover="this.style.opacity='0.90';this.style.boxShadow='0 8px 24px rgba(21,242,253,0.18), 0 0 0 4px #fd425b66';"
-    onmouseout="this.style.opacity='1';this.style.boxShadow='0 4px 16px rgba(123, 47, 242, 0.20)';"
-  >
-    <!-- Your 16:9 VTN logo inside the button -->
-    <img
-      src="https://assets.codepen.io/14563680/VTN_16_9.png"
-      alt="VTN Logo"
-      style="display: block; width: 100%; height: auto; border-radius: 4px; margin-bottom: 8px;"
-    />
-    Discord - (Virtual Television Network) Link
-  </a>
-</section>
-
-
-
-
-          <h3></h3>
- 
+        <div class="contact-card">
+          <h3>Partners/Affiliates</h3>
+        </div>
+        <section class="contact-card">
+          <a
+            href="https://discord.gg/rRs4gg99"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#00d1ff 0%,#ffffff 50%,#8a8a8a 80%); color:#000; font-weight:bold; font-size:1.15rem; border-radius:8px; text-decoration:none; box-shadow:0 4px 12px rgba(128,128,128,0.6); transition:opacity 0.2s,box-shadow 0.2s; letter-spacing:0.03em; outline:none;"
+            onmouseover="this.style.opacity='0.90'; this.style.boxShadow='0 8px 24px rgba(21,242,253,0.18),0 0 0 4px #8a8a8a66';"
+            onmouseout="this.style.opacity='1'; this.style.boxShadow='0 4px 12px rgba(128,128,128,0.6)';"
+          >
+            <img
+              src="https://assets.codepen.io/14563680/IMG_5753.png"
+              alt="Full‐width Garage Scene"
+              loading="lazy"
+              draggable="false"
+              style="display:block; width:100%; height:auto; border-radius:4px; margin-bottom:8px;"
+            />
+            Discord – V.R.A. (Virtual Racing Association) Link
+          </a>
+        </section>
+        <h3></h3>
+        <section class="contact-card">
+          <a
+            href="https://discord.gg/9VUGw8Hs"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#7b2ff2 0%,#15f2fd 75%,#fd425b 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:8px; text-decoration:none; box-shadow:0 4px 16px rgba(123,47,242,0.20); transition:opacity 0.2s,box-shadow 0.2s; letter-spacing:0.03em; outline:none;"
+            onmouseover="this.style.opacity='0.90'; this.style.boxShadow='0 8px 24px rgba(21,242,253,0.18),0 0 0 4px #fd425b66';"
+            onmouseout="this.style.opacity='1'; this.style.boxShadow='0 4px 16px rgba(123,47,242,0.20)';"
+          >
+            <img
+              src="https://assets.codepen.io/14563680/VTN_16_9.png"
+              alt="VTN Logo"
+              loading="lazy"
+              style="display:block; width:100%; height:auto; border-radius:4px; margin-bottom:8px;"
+            />
+            Discord – (Virtual Television Network) Link
+          </a>
+        </section>
+        <h3></h3>
 
         <div class="contact-card">
           <h3>Payments</h3>
-          <!-- PayPal Blue Non-Clickable Button -->
-<span style="
-  display:inline-block;
-  padding:12px 28px;
-  background-color:#003087;
-  color:#fff;
-  font-weight:bold;
-  font-size:1.08rem;
-  border-radius:7px;
-  letter-spacing:1px;
-  opacity:0.7;
-  cursor:not-allowed;
-  user-select:none;
-  margin-right:8px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-">
-  PayPal
-</span>
-
-          <!-- Visa Non-Clickable Button -->
-<span style="
-  display:inline-block;
-  padding:12px 28px;
-  background-color:#1a1f71;
-  color:#fff;
-  font-weight:bold;
-  font-size:1.08rem;
-  border-radius:7px;
-  letter-spacing:1px;
-  opacity:0.78;
-  cursor:not-allowed;
-  user-select:none;
-  margin-right:8px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-">
-  Visa
-</span>
-          <!-- Mastercard Non-Clickable Button: Blue, Orange, Yellow Gradient -->
-<span style="
-  display:inline-block;
-  padding:12px 28px;
-  background:linear-gradient(90deg, #2563eb 0%, #ff9800 55%, #ffe066 100%);
-  color:#fff;
-  font-weight:bold;
-  font-size:1.08rem;
-  border-radius:7px;
-  letter-spacing:1px;
-  opacity:0.85;
-  cursor:not-allowed;
-  user-select:none;
-  box-shadow:0 2px 8px rgba(0,0,0,0.08);
-">
-  Mastercard
-</span>
+          <span style="display:inline-block; padding:12px 28px; background-color:#003087; color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.7; cursor:not-allowed; user-select:none; margin-right:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">PayPal</span>
+          <span style="display:inline-block; padding:12px 28px; background-color:#1a1f71; color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.78; cursor:not-allowed; user-select:none; margin-right:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">Visa</span>
+          <span style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#2563eb 0%,#ff9800 55%,#ffe066 100%); color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.85; cursor:not-allowed; user-select:none; box-shadow:0 2px 8px rgba(0,0,0,0.08);">Mastercard</span>
+        </div>
 
         <div class="contact-card">
           <h3>Contact</h3>
-          Feedback | Questions | Concerns
+          <p>Feedback | Questions | Concerns</p>
         </div>
+
       </div>
+
       <form id="contact-form" action="https://formspree.io/f/mnndrjqa" method="POST">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="_replyto" placeholder="Your Email" required />
@@ -486,7 +360,6 @@
     </p>
   </footer>
 
-  <!-- Your JavaScript goes in the JS panel (see below) -->
 </body>
 </html>
 <!-- partial -->
