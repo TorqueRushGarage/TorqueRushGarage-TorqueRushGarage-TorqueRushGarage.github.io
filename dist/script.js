@@ -84,25 +84,134 @@ const GAME_DATA = [
 ];
 
 
-/// ------------------ PRODUCT DEFINITIONS ------------------
+// ------------------ PRODUCT DEFINITIONS WITH PAYPAL BUTTON CODES ------------------
+
+// --- Bundle and Tier: Pricing + Hosted Button Codes Mapping ---
+// Each bundle is mapped to each tier (Basic/Pro/Elite) with its unique PayPal code.
+
 const bundleTiers = [
-  { id: "bundle1", name: "1 Car / 1 Track", type: "bundle", base: 22.99, code: "TANSDAANZ7H5L", features: ["Car tuning package", "Performance boost", "Optimized setups"] },
-  { id: "bundle2", name: "1 Car / 2 Tracks or 2 Cars / 1 Track", type: "bundle", base: 25.99, code: "HZAK8CZM94384", features: ["Advanced handling tweaks", "Racing optimization"] },
-  { id: "bundle3", name: "1 Car / 3 Tracks or 3 Cars / 1 Track", type: "bundle", base: 32.99, code: "V55FRB25GM4QN", features: ["Optimized car & track combo", "Tailored tune for events", "Fast delivery", "--1 FREE TUNE FOR 1 MORE CAR UPON PURCHASE--"] }
+  {
+    id: "bundle1", // 1 Car / 1 Track
+    name: "1 Car / 1 Track",
+    type: "bundle",
+    base: 22.99,
+    // Each tier (Basic/Pro/Elite) has its own hostedButtonId (PayPal)
+    buttons: {
+      basic: "2KGP2JW5PKKNN",   // https://www.paypal.com/ncp/payment/2KGP2JW5PKKNN
+      pro:   "DHKV5RKHKQB32",   // https://www.paypal.com/ncp/payment/DHKV5RKHKQB32
+      elite: "LUE2Y5WX7EMQ6",   // https://www.paypal.com/ncp/payment/LUE2Y5WX7EMQ6
+    },
+    features: [
+      "Car tuning package",
+      "Performance boost",
+      "Optimized setups"
+    ]
+  },
+  {
+    id: "bundle2", // 1 Car / 2 Tracks or 2 Cars / 1 Track
+    name: "1 Car / 2 Tracks or 2 Cars / 1 Track",
+    type: "bundle",
+    base: 25.99,
+    buttons: {
+      basic: "5S4HW9MCNKYPL",   // https://www.paypal.com/ncp/payment/5S4HW9MCNKYPL
+      pro:   "FN5W773LP2344",   // https://www.paypal.com/ncp/payment/FN5W773LP2344
+      elite: "DJDHMVBSSEASG",   // https://www.paypal.com/ncp/payment/DJDHMVBSSEASG
+    },
+    features: [
+      "Advanced handling tweaks",
+      "Racing optimization"
+    ]
+  },
+  {
+    id: "bundle3", // 1 Car / 3 Tracks or 3 Cars / 1 Track
+    name: "1 Car / 3 Tracks or 3 Cars / 1 Track",
+    type: "bundle",
+    base: 32.99,
+    buttons: {
+      basic: "WND9YDDEG96LU",   // https://www.paypal.com/ncp/payment/WND9YDDEG96LU
+      pro:   "TH4L6EPNC9E78",   // https://www.paypal.com/ncp/payment/TH4L6EPNC9E78
+      elite: "XHFKZ5PDA527L",   // https://www.paypal.com/ncp/payment/XHFKZ5PDA527L
+    },
+    features: [
+      "Optimized car & track combo",
+      "Tailored tune for events",
+      "Fast delivery",
+      "--1 FREE TUNE FOR 1 MORE CAR UPON PURCHASE--"
+    ]
+  }
 ];
 
+// --- Flat Tiers: Pricing + Hosted Button Codes Mapping ---
+// For standalone packages.
+
 const tierTiers = [
-  { id: "basic", name: "Basic", type: "flat", price: 5.99, code: "A67AS7RGPZLGE", features: ["Single car setup", "Performance adjustments", "Up to 3 Adjustments Per Car", "Tires", "Camber", "Springs", "Suspension", "Brakes"] },
-  { id: "pro", name: "Pro", type: "flat", price: 9.99, code: "8PTZ739CJ4YDJ", features: ["All Basic features", "Gearing, suspension, tires & aerodynamics", "Up to 6 Adjustments Per Car", "Tires", "Camber", "Anti-Roll Bars", "Aero", "Brakes", "Differentials"] },
-  { id: "elite", name: "Elite", type: "flat", price: 16.99, code: "3U7FL6M5YZB6A", features: ["Full race-ready custom setup", "Peak performance tuning", "Up to 10 Adjustments Per Car", "Tires", "Camber", "Toe and Caster", "Springs", "Anti-Roll Bars", "Dampers", "Suspension Geometry", "Aero", "Brakes", "Differentials"] }
+  {
+    id: "basic",
+    name: "Basic",
+    type: "flat",
+    price: 5.99,
+    code: "ZWD86SFTG8LCW",      // https://www.paypal.com/ncp/payment/ZWD86SFTG8LCW
+    features: [
+      "Single car setup",
+      "Performance adjustments",
+      "Up to 3 Adjustments Per Car",
+      "Tires",
+      "Camber",
+      "Springs",
+      "Suspension",
+      "Brakes"
+    ]
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    type: "flat",
+    price: 9.99,
+    code: "MK7RA8J87U7VY",      // https://www.paypal.com/ncp/payment/MK7RA8J87U7VY
+    features: [
+      "All Basic features",
+      "Gearing, suspension, tires & aerodynamics",
+      "Up to 6 Adjustments Per Car",
+      "Tires",
+      "Camber",
+      "Anti-Roll Bars",
+      "Aero",
+      "Brakes",
+      "Differentials"
+    ]
+  },
+  {
+    id: "elite",
+    name: "Elite",
+    type: "flat",
+    price: 16.99,
+    code: "N6ZFC5VKSYTFA",      // https://www.paypal.com/ncp/payment/N6ZFC5VKSYTFA
+    features: [
+      "Full race-ready custom setup",
+      "Peak performance tuning",
+      "Up to 10 Adjustments Per Car",
+      "Tires",
+      "Camber",
+      "Toe and Caster",
+      "Springs",
+      "Anti-Roll Bars",
+      "Dampers",
+      "Suspension Geometry",
+      "Aero",
+      "Brakes",
+      "Differentials"
+    ]
+  }
 ];
+
+// --- Custom Coaching: Pricing + Hosted Button Code Mapping ---
 
 const coachingTier = {
   id: "coach",
   name: "Custom Coaching",
   type: "coach",
   price: 59.99,
-  code: "EEFRHEEQ8A4SA",
+  code: "RVS3K5VEL9UMQ", // https://www.paypal.com/ncp/payment/RVS3K5VEL9UMQ
   features: [
     "*Tell us what you need…*",
     "<span class='text-red'>(— Car & Build):</span><span class='text-ice'> Make, model, year, engine & drivetrain mods</span>",
@@ -115,6 +224,7 @@ const coachingTier = {
   ]
 };
 
+// --- Why-Choose Features (No Payment Mapping) ---
 const WHY_FEATURES = [
   { icon: "🏎️", title: "Tailored to Your Driving", desc: "Tunes made for your car, your style, your game. Feel the difference on track instantly." },
   { icon: "⚡", title: "Fast Turnaround", desc: "Receive your tune within 24 hours. Quick service, no waiting." },
@@ -122,6 +232,7 @@ const WHY_FEATURES = [
   { icon: "🎮", title: "Cross-Platform", desc: "Works for Xbox, PlayStation, PC – all supported games, all the best setups." }
 ];
 
+// --- Reviews Array ---
 const REVIEWS = [
   "“Immediately noticed better handling and corner control, they really take the time to understand your driving needs...” -SHxTLUCK",
   "“Top speed boost and smoother shifting, kept me in the top 3 at Daytona – brilliant adjustments!” -LowLeadAV",
@@ -139,6 +250,7 @@ const REVIEWS = [
   "“My drifting improved tenfold. Finally feels dialed in...” -FSCC FATAL",
   "“It’s like racing on rails – total stability upgrade.” -OG SOUR D 13"
 ];
+
 
 // ----------------- CART STATE -----------------
 let cart = [];
@@ -223,7 +335,7 @@ function renderPricing() {
            <option value="">Select Tier</option>
            ${tierOptions}
          </select>
-         <textarea id="bundle-notes-${i}" maxlength="250" rows="2" placeholder="Add notes (max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
+         <textarea id="bundle-notes-${i}" maxlength="250" rows="2" placeholder="Describe your current setup, issues you're facing, improvements you're seeking, variables in use, or any other relevant details(max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
          <button id="btn-bundle-${i}" disabled onclick="addBundleTier(${i})">Add To Cart</button>
        </div>`
     );
@@ -246,7 +358,7 @@ function renderPricing() {
          </select>
          <select id="car-flat-${idx}" disabled><option>Select Vehicle</option></select>
          <select id="track-flat-${idx}" disabled><option>Select Track</option></select>
-         <textarea id="flat-notes-${idx}" maxlength="250" rows="2" placeholder="Add notes (max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
+         <textarea id="flat-notes-${idx}" maxlength="250" rows="2" placeholder="Describe your current setup, issues you're facing, improvements you're seeking, variables in use, or any other relevant details(max 250 chars)" style="width:100%;margin:10px 0 4px 0;padding:5px;font-size:14px;resize:none;"></textarea>
          <button id="btn-flat-${idx}" disabled onclick="addFlat(${idx})">Add To Cart</button>
        </div>`
     );
@@ -429,46 +541,48 @@ window.toggleCartModal = () => {
 document.getElementById("cart-icon-navbar")?.addEventListener("click", toggleCartModal);
 document.getElementById("close-cart-modal-navbar")?.addEventListener("click", toggleCartModal);
 
-// ----------- PAYPAL BUTTONS INTEGRATION -----------
+// ----------- PAYPAL HOSTED BUTTONS INTEGRATION -----------
+// Renders the correct PayPal Hosted Button for the latest item in cart
 function renderPayPalButton() {
   const btnContainer = document.getElementById("paypal-button-container");
   btnContainer.innerHTML = "";
   if (!window.paypal || cart.length === 0) return;
 
-  window.paypal.Buttons({
-    style: { shape: "rect", layout: "vertical", color: "gold", label: "paypal" },
-    createOrder: (data, actions) => {
-      const items = cart.map(item => ({
-        name: item.displayName,
-        sku: item.code,
-        unit_amount: { currency_code: "USD", value: item.price.toFixed(2) },
-        quantity: "1"
-      }));
-      const total = cart.reduce((sum, x) => sum + x.price, 0).toFixed(2);
+  // Get last cart item for checkout (PayPal Hosted Buttons = single item checkout)
+  const item = cart[cart.length - 1];
 
-      return actions.order.create({
-        purchase_units: [{
-          amount: {
-            currency_code: "USD",
-            value: total,
-            breakdown: { item_total: { currency_code: "USD", value: total } }
-          },
-          items
-        }]
-      });
-    },
-    onApprove: (data, actions) => {
-      return actions.order.capture().then(details => {
-        resultMessage(`✅ ${details.status}: ${details.id}`);
-        cart = [];
-        renderCart();
-        toggleCartModal();
-      });
-    },
-    onError: err => {
-      resultMessage(`PayPal error: ${err}`);
+  // Determine the hosted button ID for this item
+  let hostedButtonId = "";
+  // For bundles with tier selection
+  if (item.id && item.tier && typeof bundleTiers !== "undefined") {
+    const bundle = bundleTiers.find(b => b.id === item.id);
+    if (bundle && bundle.buttons && bundle.buttons[item.tier.toLowerCase()]) {
+      hostedButtonId = bundle.buttons[item.tier.toLowerCase()];
     }
-  }).render("#paypal-button-container");
+  }
+  // For flat tiers
+  if (!hostedButtonId && item.id && typeof tierTiers !== "undefined") {
+    const tier = tierTiers.find(t => t.id === item.id);
+    if (tier && tier.code) hostedButtonId = tier.code;
+  }
+  // For custom coaching
+  if (!hostedButtonId && item.id === "coach" && typeof coachingTier !== "undefined") {
+    hostedButtonId = coachingTier.code;
+  }
+
+  if (!hostedButtonId) {
+    btnContainer.innerHTML = "<div style='color:red;'>Unable to load PayPal button: missing or invalid Hosted Button ID.</div>";
+    return;
+  }
+
+  // Create a unique container for the button
+  const containerId = `paypal-container-${hostedButtonId}`;
+  btnContainer.innerHTML = `<div id="${containerId}"></div>`;
+
+  // Render the PayPal Hosted Button for this product
+  paypal.HostedButtons({
+    hostedButtonId: hostedButtonId,
+  }).render(`#${containerId}`);
 }
 
 function resultMessage(msg) {
