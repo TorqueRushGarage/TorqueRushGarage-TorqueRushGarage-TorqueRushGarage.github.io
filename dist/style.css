@@ -564,3 +564,7 @@ nav#navbar.solid {
     transform: translateY(0);
   }
 }
+#paypal-button-container {
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
