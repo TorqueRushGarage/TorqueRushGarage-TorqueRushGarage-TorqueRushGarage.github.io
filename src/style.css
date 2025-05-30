@@ -568,3 +568,89 @@ nav#navbar.solid {
   margin-top: 16px;
   margin-bottom: 8px;
 }
+/* ─── DYNAMIC NEON-GRADIENT NASCAR BANNER ─── */
+
+.leaderboard-banner {
+  position: fixed;
+  top: 962px; /* adjust to your navbar height */
+  left: 0;
+  width: 100%;
+  height: 12px; /* banner height */
+  overflow: hidden;
+  z-index: 1000;
+  background: linear-gradient(270deg, #1a1a1a, #ff004c, #1a1a1a, #00e5ff);
+  background-size: 800% 800%;
+  animation: bgGradient 25s ease infinite;
+}
+
+@keyframes bgGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.marquee {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.marquee__inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  animation: scrollLeft 20s linear infinite;
+}
+
+.marquee__inner span {
+  display: inline-block;
+  margin: 0 2rem;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 0, 76, 0.7),
+    0 0 16px rgba(0, 229, 255, 0.6);
+  animation: neonFlicker 2s ease-in-out infinite alternate;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Neon-flicker effect */
+@keyframes neonFlicker {
+  from {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.9),
+      0 0 12px rgba(255, 0, 76, 0.8), 0 0 24px rgba(0, 229, 255, 0.7);
+  }
+  to {
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 4px rgba(255, 0, 76, 0.5),
+      0 0 8px rgba(0, 229, 255, 0.5);
+  }
+}
+
+/* ── To flip scroll to LEFT→RIGHT ── 
+   replace `animation: scrollLeft…` above with:
+      animation: scrollRight 25s linear infinite;
+   and uncomment:
+*/
+/*
+@keyframes scrollRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+*/
