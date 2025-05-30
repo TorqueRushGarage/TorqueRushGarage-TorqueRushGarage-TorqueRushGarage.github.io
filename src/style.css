@@ -606,6 +606,7 @@ nav#navbar.solid {
   align-items: center;
   height: 100%;
   white-space: nowrap;
+  min-width: 200%;
   animation: scrollLeft 20s linear infinite;
 }
 
