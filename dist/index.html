@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>🔥 Torque Rush Garage 🔥</title>
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<!DOCTYPE html>
 <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>NASCAR 25 Corrected</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>🔥 Torque Rush Garage 🔥</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="https://yourdomain.com/images/Torque-Rush-Garage-Inc.png" type="image/png" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="script.css" />
- <script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAw7S_6j7bYQUuHP1pFztpgLVJPiDjRU9-OH-Yuu2VeanBGlkqyTTBnGhpser1IjVWM46ZIEsVgTNcA5c&components=hosted-buttons&enable-funding=venmo&currency=USD">
-</script>
-  
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- GSAP for animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-  <!-- Vercel Speed Insights (analytics) -->
-  <script defer data-token="YOUR_PROJECT_TOKEN" src="https://cdn.jsdelivr.net/npm/@vercel/speed-insights@latest/client.js"></script>
+  <!-- PayPal SDK: SMART BUTTONS (one include only) -->
+  <!-- IMPORTANT: replace YOUR_LIVE_CLIENT_ID with your real LIVE client ID from the SAME PayPal account that will receive the money -->
+  <script src="https://www.paypal.com/sdk/js?client-id=ARo7yK9rMHQZAtocyhoyiWLpHc6-djELjENq7wf-nQwDNIvpWaO2pUZGRbTtwWbZJtJhCq35KFijzfxA&components=buttons&currency=USD&enable-funding=venmo"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js" defer></script>
 </head>
+
 <body>
   <nav id="navbar" class="transparent">
     <div class="nav-left">
@@ -41,28 +41,30 @@
       <a href="#bio">About Us</a>
       <div id="cart-icon-navbar" class="cart-icon" style="cursor:pointer;position:relative;">
         <svg viewBox="0 0 24 24" width="28" height="28" style="vertical-align:middle;fill:var(--accent-ice);">
-          <circle cx="9" cy="21" r="1.5"/>
-          <circle cx="20" cy="21" r="1.5"/>
-          <path d="M1 1h2l3.6 7.59-1.35 2.44A2.992 2.992 0 0 0 7 17h12v-2H7.42a1 1 0 0 1-.98-.8l.03-.12L8.1 13h7.45a2.993 2.993 0 0 0 2.68-1.69l3.24-6.28A1 1 0 0 0 20.1 3H5.21l-.94-2H1zm16.16 9l-2.76 5H8.53l2.04-3.67L17.16 10z"/>
+          <circle cx="9" cy="21" r="1.5"></circle>
+          <circle cx="20" cy="21" r="1.5"></circle>
+          <path d="M1 1h2l3.6 7.59-1.35 2.44A2.992 2.992 0 0 0 7 17h12v-2H7.42a1 1 0 0 1-.98-.8l.03-.12L8.1 13h7.45a2.993 2.993 0 0 0 2.68-1.69l3.24-6.28A1 1 0 0 0 20.1 3H5.21l-.94-2H1zm16.16 9l-2.76 5H8.53l2.04-3.67L17.16 10z"></path>
         </svg>
         <span id="cart-count" class="cart-count" style="position:absolute;top:0;right:-10px;min-width:16px;height:16px;background:var(--accent-red);color:#fff;border-radius:50%;text-align:center;font-size:13px;line-height:16px;display:inline-block;">0</span>
       </div>
-      <!-- CART MODAL with PayPal button container -->
+
+      <!-- CART MODAL — Smart Buttons render ONLY here -->
       <div id="cart-modal-navbar" class="cart-modal-navbar">
         <div class="cart-modal-navbar-content">
           <span id="close-cart-modal-navbar" class="close">&times;</span>
           <h2>Your Cart</h2>
           <div id="cart-items"></div>
           <div id="cart-total"></div>
-          <!-- PAYPAL BUTTONS MUST RENDER HERE -->
-          <div id="paypal-button-container"></div>
+          <div id="paypal-button-container" style="margin-top:12px;"></div>
           <p id="result-message"></p>
         </div>
       </div>
     </div>
   </nav>
 
-  <div id="preloader" style="display:none;"><div class="spinner"></div></div>
+  <div id="preloader" style="display:none;">
+    <div class="spinner"></div>
+  </div>
 
   <section id="hero">
     <div class="hero-bg"></div>
@@ -76,315 +78,193 @@
     </div>
   </section>
 
-  <main>
-    <section id="bio" class="scroll-section fade-section">
-      <h2 class="section-title neon-red-text section-title-centered">Rev Up Your Ride</h2>
-      <div style="text-align:center;">
-        <p style="color:var(--accent-blue);">
-          Struggling to find the right tune that truly fits your driving style? Torque Rush Garage is here to help. Our experienced team provides a carefully curated and regularly updated collection of custom tunes designed specifically for your vehicle and needs. As new racing games come out, we expand our library so you always have reliable, effective setups to improve your performance and enjoy the race. We specialize in optimizing vehicle performance for all online racing games.<br><br>
-          Whether you're racing on Console or PC, our advanced tuning delivers unmatched handling, speed, and control.
-        </p>
-        <img
-          src="https://assets.codepen.io/14563680/yurrr.webp"
-          alt="Garage tuning scene"
-          loading="lazy"
-          style="
-            width: 100%;
-            height: auto;
-            margin-top: 1.5rem;
-            border-radius: var(--radius);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-            display: block;
-          "
-        />
-     <!-- ─── INSERT DYNAMIC NEON MARQUEE BANNER HERE ─── -->
-<div class="leaderboard-banner">
-  <div class="marquee">
-    <div class="marquee__inner">
+  <section id="bio" class="scroll-section fade-section">
+    <h2 class="section-title neon-red-text section-title-centered">Rev Up Your Ride</h2>
+    <div style="text-align:center;">
+      <p style="color:var(--accent-blue);">
+        Struggling to find the right tune that truly fits your driving style? Torque Rush Garage is here to help. Our experienced team provides a carefully curated and regularly updated collection of custom tunes designed specifically for your vehicle and needs. As new racing games come out, we expand our library so you always have reliable, effective setups to improve your performance and enjoy the race. We specialize in optimizing vehicle performance for all online racing games.<br><br>
+        Whether you're racing on Console or PC, our advanced tuning delivers unmatched handling, speed, and control.
+      </p>
+
+      <div class="leaderboard-banner">
+        <div class="marquee">
+          <div class="marquee__inner">
             <span>------------------</span>
+            <span>JOIN V.R.A (VIRTUAL RACING ASSOCIATION) TODAY!!!!</span>
+            <span>OVER 150+ ACTIVE MEMBERS</span>
+            <span>WEEKLY EVENTS & POP UP EVENTS</span>
+            <span><a href="https://discord.gg/vra10" target="_blank" rel="noopener noreferrer">https://discord.gg/vra10</a></span>
+            <span>------------------</span>
+            <span>------------------</span>
+            <span>JOIN V.R.A (VIRTUAL RACING ASSOCIATION) TODAY!!!!</span>
+            <span>OVER 150+ ACTIVE MEMBERS</span>
+            <span>WEEKLY EVENTS & POP UP EVENTS</span>
+            <span><a href="https://discord.gg/vra10" target="_blank" rel="noopener noreferrer">https://discord.gg/vra10</a></span>
+            <span>------------------</span>
+          </div>
+        </div>
+      </div>
 
-      <span>JOIN V.R.A (VIRTUAL RACING ASSOCIATION) TODAY!!!!</span>
-      <span>OVER 250+ ACTIVE MEMBERS</span>
-      <span>WEEKLY EVENTS & POP UP EVENTS</span>
-      <span>
-        
-        <a
-          href="https://discord.gg/rRs4gg99"
-          target="_blank"
-          rel="noopener noreferrer"
-        >https://discord.gg/rRs4gg99</a>
-      <span>------------------</span>
-      <!-- repeat to seamlessly loop -->
-              <span>------------------</span>
-
-      <span>JOIN V.R.A (VIRTUAL RACING ASSOCIATION) TODAY!!!!</span>
-      <span>OVER 250+ ACTIVE MEMBERS</span>
-      <span>WEEKLY EVENTS & POP UP EVENTS</span>
-      <span>
-        
-        <a
-          href="https://discord.gg/rRs4gg99"
-          target="_blank"
-          rel="noopener noreferrer"
-        >https://discord.gg/rRs4gg99</a>
-      <span>------------------</span>
-
+      <p style="color:var(--accent-blue);">V.R.A. Partner Season Highlights</p>
+      <header>
+        <video autoplay muted loop playsinline style="width: 50%; height: auto; object-fit: cover;">
+          <source src="https://assets.codepen.io/14563680/VRA_FIXED_compressed.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </header>
     </div>
-  </div>
-</div>
+  </section>
 
-<p style="color:var(--accent-blue);">V.R.A. Partner Season Highlights</p>
-<header>
-  <video autoplay muted loop playsinline style="width: 100%; height: auto; object-fit: cover;">
-    <source src="https://assets.codepen.io/14563680/VRA_FIXED_compressed.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</header>
+  <section id="why-tune" class="scroll-section fade-section">
+    <h2 class="gold-center-title section-title-centered">Why Tune With Us?</h2>
+    <div id="why-tune-features-grid" class="why-features-grid"></div>
+    <div style="text-align:center;margin-top:22px;">
+      <p>Receive your tune within 24 hours of purchase via email! Request your setup as [.PDF, .TXT, or written file].</p>
+      <p>1-on-1 Custom Coaching tailored via customer support upon purchase.</p>
+    </div>
+  </section>
 
+  <div class="spacer"></div>
 
-    <section id="why-tune" class="scroll-section fade-section">
-      <h2 class="gold-center-title section-title-centered">Why Tune With Us?</h2>
-      <div id="why-tune-features-grid" class="why-features-grid"></div>
-      <div style="text-align:center;margin-top:22px;">
-        <p>Receive your tune within 24 hours of purchase via email! Request your setup as [.PDF, .TXT, or written file].</p>
-        <p>1-on-1 Custom Coaching tailored via customer support upon purchase.</p>
-      </div>
-    </section>
+  <section id="reviews" class="scroll-section fade-section">
+    <h2 class="section-title neon-red-text section-title-centered">User Reviews</h2>
+    <div id="review-box" class="review-cycle"></div>
+  </section>
 
-    <div class="spacer"></div>
-
-    <section id="reviews" class="scroll-section fade-section">
-      <h2 class="section-title neon-red-text section-title-centered">User Reviews</h2>
-      <div id="review-box" class="review-cycle"></div>
-    </section>
-
-    <section id="pricing" class="scroll-section fade-section">
-      <h2 class="section-title neon-red-text section-title-centered">Pricing Tiers</h2>
-      <div class="pricing-grid" id="pricing-tiers"></div>
-    </section>
-
-    <section id="featured-highlight" class="scroll-section fade-section content-box">
-      <h2 class="section-title neon-red-text section-title-centered">Featured Partner/Affiliate Highlights -V.R.A Virtual Racing Association</h2>
-      <div style="text-align: center;">
-        <h2 class="section-title neon-red-text section-title-centered">-If Interested in Community or Racing</h2>
-        <a href="https://discord.gg/rRs4gg99"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="
-            display: inline-block;
-            padding: 12px 28px;
-            background: linear-gradient(
-              90deg,
-              #00d1ff 0%,    /* Teal */
-              #00ffff 33%,   /* Cyan */
-              #ffffff 66%,   /* White */
-              #8a8a8a 100%   /* Cool Grey */
-            );
-            color: #000;
-            font-weight: bold;
-            font-size: 1.15rem;
-            border-radius: 8px;
-            text-decoration: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-            transition: opacity 0.2s, box-shadow 0.2s;
-          ">
-          Join our Discord - V.R.A.
-        </a>
-      </div>
-      <h2 class="section-title neon-red-text section-title-centered">Season Schedule</h2>
-      <section id="vra-season3" class="scroll-section fade-section content-box">
-        <h2 class="section-title neon-red-text section-title-centered">V.R.A. Season 3</h2>
-        <div class="image-section" style="text-align:center; margin-top:1rem;">
-          <img
-            src="https://assets.codepen.io/14563680/VRA%20season%203.png"
-            alt="V.R.A. Season 3 Banner"
-            loading="lazy"
-            style="
-              width: 100%;
-              height: auto;
-              max-width: 100%;
-              border-radius: var(--radius);
-              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-              display: inline-block;
-            "
-          />
+  <!-- NASCAR 25 PRICING SECTION -->
+  <section id="nascar25" class="scroll-section fade-section">
+    <h2 class="section-title neon-red-text section-title-centered"></h2>
+    <div class="pricing-container">
+      <h1 class="pricing-title">NASCAR 25 Setup Pricing</h1>
+      <div class="pricing-grid">
+        <!-- Cards unchanged; they ONLY add to cart -->
+        <div class="pricing-card cup-theme" data-series="CUP SERIES">
+          <div class="title-bg">
+            <h2><span class="series-name cup-color">CUP SERIES</span> – <span class="track-count">27 TRACKS</span></h2>
+          </div>
+          <select class="pricing-select">
+            <option value="">Select Option</option>
+            <option value="single">$5 – Single Track</option>
+            <option value="5-pack">$25 – 5-Track Pack</option>
+            <option value="10-pack">$40 – 10-Track Pack</option>
+            <option value="full">$85 – Full Series (27 Tracks)</option>
+          </select>
+          <div class="nascar-track-box" style="display:none;margin-top:12px;"></div>
+          <button class="add-btn">Add to Cart</button>
         </div>
-      </section>
-      <h2 class="section-title neon-red-text section-title-centered">V.R.A. Season 2 Championship</h2>
-      <div class="video-wrap" style="width: 100%; padding-bottom: 56.25%; position: relative; margin: 0;">
-        <iframe
-          src="https://www.youtube.com/embed/b2HX8JgIzqs"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="position: absolute; inset: 0; width: 100%; height: 100%; border: 0;"
-        ></iframe>
-      </div>
-      <h2 class="section-title neon-red-text section-title-centered">V.R.A Highlights</h2>
-      <div class="vra-grid">
-        <a href="https://assets.codepen.io/14563680/VRA6.png" target="_blank" rel="noopener">
-  <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA6.png" alt="VRA6"></div>
-</a>
-<a href="https://assets.codepen.io/14563680/VRA5.png" target="_blank" rel="noopener">
-  <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA5.png" alt="VRA5"></div>
-</a>
-<a href="https://assets.codepen.io/14563680/VRA4.png" target="_blank" rel="noopener">
-  <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA4.png" alt="VRA4"></div>
-</a>
-<a href="https://assets.codepen.io/14563680/VRA3.png" target="_blank" rel="noopener">
-  <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA3.png" alt="VRA3"></div>
-</a>
-<a href="https://assets.codepen.io/14563680/VRA2.png" target="_blank" rel="noopener">
-  <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA2.png" alt="VRA2"></div>
-</a>
-<a href="https://assets.codepen.io/14563680/VRA1.png" target="_blank" rel="noopener">
-  <div class="vra-card"><img src="https://assets.codepen.io/14563680/VRA1.png" alt="VRA1"></div>
-</a>
-<a href="https://assets.codepen.io/14563680/IMG_5800.png" target="_blank" rel="noopener">
-  <div class="vra-card"><img src="https://assets.codepen.io/14563680/IMG_5800.png" alt="IMG_5800"></div>
-</a>
-<div class="vra-card empty"></div>
-<div class="vra-card empty"></div>
-<div class="vra-card empty"></div>
-<div class="vra-card empty"></div>
-<div class="vra-card empty"></div>
+
+        <div class="pricing-card xfinity-theme" data-series="XFINITY SERIES">
+          <div class="title-bg">
+            <h2><span class="series-name xfinity-color">XFINITY SERIES</span> – <span class="track-count">25 TRACKS</span></h2>
+          </div>
+          <select class="pricing-select">
+            <option value="">Select Option</option>
+            <option value="single">$5 – Single Track</option>
+            <option value="5-pack">$25 – 5-Track Pack</option>
+            <option value="10-pack">$35 – 10-Track Pack</option>
+            <option value="full">$65 – Full Series (25 Tracks)</option>
+          </select>
+          <div class="nascar-track-box" style="display:none;margin-top:12px;"></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="pricing-card truck-theme" data-series="TRUCK SERIES">
+          <div class="title-bg">
+            <h2><span class="series-name truck-color">TRUCK SERIES</span> – <span class="track-count">23 TRACKS</span></h2>
+          </div>
+          <select class="pricing-select">
+            <option value="">Select Option</option>
+            <option value="single">$4 – Single Track</option>
+            <option value="5-pack">$20 – 5-Track Pack</option>
+            <option value="10-pack">$30 – 10-Track Pack</option>
+            <option value="full">$60 – Full Series (23 Tracks)</option>
+          </select>
+          <div class="nascar-track-box" style="display:none;margin-top:12px;"></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="pricing-card arca-theme" data-series="ARCA SERIES">
+          <div class="title-bg">
+            <h2><span class="series-name arca-color">ARCA SERIES</span> – <span class="track-count">16 TRACKS</span></h2>
+          </div>
+          <select class="pricing-select">
+            <option value="">Select Option</option>
+            <option value="single">$3 – Single Track</option>
+            <option value="5-pack">$15 – 5-Track Pack</option>
+            <option value="10-pack">$25 – 10-Track Pack</option>
+            <option value="full">$55 – Full Series (16 Tracks)</option>
+          </select>
+          <div class="nascar-track-box" style="display:none;margin-top:12px;"></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+
+        <div class="pricing-card buyall-theme" data-series="ALL">
+          <div class="title-bg">
+            <h2><span class="series-name buyall-color">BUY <span class="flash-all">ALL</span> SERIES</span> – <span class="track-count">Full Access</span></h2>
+          </div>
+          <select class="pricing-select">
+            <option value="">Select Option</option>
+            <option value="full">$199 – Complete NASCAR 25 Package (All Series)</option>
+          </select>
+          <div class="nascar-track-box" style="display:none;margin-top:12px;"></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="highlights" class="scroll-section fade-section">
-      <h2 class="section-title neon-red-text section-title-centered">Highlights & Photos</h2>
-      <div class="highlights-grid">
-        <div class="highlight-card">
-          <h3>Forza Horizon 5</h3>
-          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/XCV6rNvm2nk" allowfullscreen></iframe></div>
-        </div>
-        <div class="highlight-card">
-          <h3>Forza Motorsports</h3>
-          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/em4gv1Ietko" allowfullscreen></iframe></div>
-        </div>
-        <div class="highlight-card">
-          <h3>Assetto Corsa</h3>
-          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/fOS5r2hBX1Q" allowfullscreen></iframe></div>
-        </div>
-        <div class="highlight-card">
-          <h3>Assetto Corsa Competizione</h3>
-          <div class="video-wrap"><iframe src="https://www.youtube.com/embed/N7lBqLqUyAQ" allowfullscreen></iframe></div>
-        </div>
-      </div>
-    </section>
+  <section id="pricing" class="scroll-section fade-section">
+    <h2 class="section-title neon-red-text section-title-centered">Pricing Tiers</h2>
+    <div class="pricing-grid" id="pricing-tiers"></div>
+  </section>
 
-    <section id="contact" class="scroll-section fade-section">
-      <h2 class="section-title neon-red-text section-title-centered">Contact Us</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Supported Platforms</h3>
-          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #107c10 75%, #111 100%);color:#fff;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.88;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.14);">Xbox</span>
-          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #003087 75%, #111 100%);color:#fff;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.88;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.14);">PlayStation</span>
-          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #60aaff 0%, #fff 65%, #111 100%);color:#111;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.88;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.13);">Steam</span>
-          <span style="display:inline-block;padding:12px 28px;background:linear-gradient(90deg, #0067c5 0%, #34a853 100%);color:#fff;font-weight:bold;font-size:1.08rem;border-radius:7px;letter-spacing:1px;opacity:0.92;cursor:not-allowed;user-select:none;box-shadow:0 2px 8px rgba(0,0,0,0.12);">PC</span>
-        </div>
-        <div class="contact-card">
-          <h3>Our Social Links</h3>
-          <a href="https://www.facebook.com/profile.php?id=61576602124829" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             style="display:inline-block; padding:12px 28px; background:linear-gradient(100deg, #ff4c00 0%, #00d1ff 60%, #0970b3 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:10px; letter-spacing:1px; text-shadow:0 2px 8px #111a23,0 0px 10px #ff4c00; box-shadow:0 3px 20px 0 rgba(0,0,0,0.35),0 1.5px 10px 0 #00d1ff33; text-decoration:none; transition:opacity 0.22s,box-shadow 0.22s;">
-            Facebook – Torque Rush Garage
-          </a>
-          <a href="mailto:torquerushgarage@yahoo.com" 
-             style="display:inline-block; padding:12px 28px; background:linear-gradient(100deg, #ff4c00 0%, #00d1ff 60%, #0970b3 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:10px; letter-spacing:1px; text-shadow:0 2px 8px #111a23,0 0px 10px #ff4c00; box-shadow:0 3px 20px 0 rgba(0,0,0,0.35),0 1.5px 10px 0 #00d1ff33; text-decoration:none; transition:opacity 0.22s,box-shadow 0.22s;">
-            Email – Torque Rush Garage
-          </a>
-          <h3></h3>
-          <a href="https://discord.gg/UeKCdQdk" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg, #00d1ff 0%,#0970b3 45%,#ff4c00 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:10px; letter-spacing:1px; text-shadow:0 2px 8px #091c31,0 0px 12px #ff4c00; box-shadow:0 3px 20px 0 rgba(0,0,0,0.35),0 1.5px 10px 0 #ff4c0033; text-decoration:none; transition:opacity 0.22s,box-shadow 0.22s;">
-            Discord – Torque Rush Garage
-          </a>
-          <a href="https://www.instagram.com/torquerushgarage/" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#fd5949,#d6249f,#285AEB); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:8px; text-decoration:none; transition:opacity 0.2s;">
-            Instagram – Torque Rush Garage
-          </a>
-        </div>
-        <div class="contact-card">
-          <h3>Partners/Affiliates</h3>
-        </div>
-        <section class="contact-card">
-          <a
-            href="https://discord.gg/rRs4gg99"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#00d1ff 0%,#ffffff 50%,#8a8a8a 80%); color:#000; font-weight:bold; font-size:1.15rem; border-radius:8px; text-decoration:none; box-shadow:0 4px 12px rgba(128,128,128,0.6); transition:opacity 0.2s,box-shadow 0.2s; letter-spacing:0.03em; outline:none;"
-            onmouseover="this.style.opacity='0.90'; this.style.boxShadow='0 8px 24px rgba(21,242,253,0.18),0 0 0 4px #8a8a8a66';"
-            onmouseout="this.style.opacity='1'; this.style.boxShadow='0 4px 12px rgba(128,128,128,0.6)';"
-          >
-            <img
-              src="https://assets.codepen.io/14563680/IMG_5753.png"
-              alt="Full‐width Garage Scene"
-              loading="lazy"
-              draggable="false"
-              style="display:block; width:100%; height:auto; border-radius:4px; margin-bottom:8px;"
-            />
-            Discord – V.R.A. (Virtual Racing Association) Link
-          </a>
-        </section>
-        <h3></h3>
-        <section class="contact-card">
-          <a
-            href="https://discord.gg/9VUGw8Hs"
-            target="_blank"
-            rel="noopener noreferrer"
-            style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#7b2ff2 0%,#15f2fd 75%,#fd425b 100%); color:#fff; font-weight:bold; font-size:1.15rem; border-radius:8px; text-decoration:none; box-shadow:0 4px 16px rgba(123,47,242,0.20); transition:opacity 0.2s,box-shadow 0.2s; letter-spacing:0.03em; outline:none;"
-            onmouseover="this.style.opacity='0.90'; this.style.boxShadow='0 8px 24px rgba(21,242,253,0.18),0 0 0 4px #fd425b66';"
-            onmouseout="this.style.opacity='1'; this.style.boxShadow='0 4px 16px rgba(123,47,242,0.20)';"
-          >
-            <img
-              src="https://assets.codepen.io/14563680/VTN_16_9.png"
-              alt="VTN Logo"
-              loading="lazy"
-              style="display:block; width:100%; height:auto; border-radius:4px; margin-bottom:8px;"
-            />
-            Discord – (Virtual Television Network) Link
-          </a>
-        </section>
-        <h3></h3>
-        <div class="contact-card">
-          <h3>Payments</h3>
-          <span style="display:inline-block; padding:12px 28px; background-color:#003087; color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.7; cursor:not-allowed; user-select:none; margin-right:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">PayPal</span>
-          <span style="display:inline-block; padding:12px 28px; background-color:#1a1f71; color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.78; cursor:not-allowed; user-select:none; margin-right:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">Visa</span>
-          <span style="display:inline-block; padding:12px 28px; background:linear-gradient(90deg,#2563eb 0%,#ff9800 55%,#ffe066 100%); color:#fff; font-weight:bold; font-size:1.08rem; border-radius:7px; letter-spacing:1px; opacity:0.85; cursor:not-allowed; user-select:none; box-shadow:0 2px 8px rgba(0,0,0,0.08);">Mastercard</span>
-        </div>
-        <div class="contact-card">
-          <h3>Contact</h3>
-          <p>Feedback | Questions | Concerns</p>
-        </div>
+  <section id="highlights" class="scroll-section fade-section">
+    <h2 class="section-title neon-red-text section-title-centered">Highlights & Photos</h2>
+    <div class="highlights-grid">
+      <div class="highlight-card">
+        <h3>Forza Horizon 5</h3>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/XCV6rNvm2nk" allowfullscreen></iframe></div>
       </div>
-      <form id="contact-form" action="https://formspree.io/f/mnndrjqa" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="_replyto" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-        <span id="form-status"></span>
-      </form>
-    </section>
-  </main>
+      <div class="highlight-card">
+        <h3>Forza Motorsports</h3>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/em4gv1Ietko" allowfullscreen></iframe></div>
+      </div>
+      <div class="highlight-card">
+        <h3>Assetto Corsa</h3>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/fOS5r2hBX1Q" allowfullscreen></iframe></div>
+      </div>
+      <div class="highlight-card">
+        <h3>Assetto Corsa Competizione</h3>
+        <div class="video-wrap"><iframe src="https://www.youtube.com/embed/N7lBqLqUyAQ" allowfullscreen></iframe></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="scroll-section fade-section">
+    <h2 class="section-title neon-red-text section-title-centered">Contact Us</h2>
+    <div class="contact-grid"></div>
+    <form id="contact-form" action="https://formspree.io/f/mnndrjqa" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+      <span id="form-status"></span>
+    </form>
+  </section>
 
   <footer>
     <span>© 2025 Torque Rush Garage – All rights reserved</span>
     <p>
-      All sales of digital game add-ons and in-game items are final. We do not provide refunds, returns, or exchanges for any virtual goods—including but not limited to downloadable content (DLC), purchased online tune information, in-game currency, skins, battle passes, expansions, cosmetic items, boosts, or any other data or information used within online gaming applications.<br><br>
-      By completing a transaction, you confirm you understand that no refunds or credits will be issued under any circumstances.
+      All sales of digital game add-ons and in-game items are final. We do not provide refunds, returns, or exchanges…
     </p>
   </footer>
-  <!-- YOUR CUSTOM SCRIPT FILE, must handle cart, modal, and PayPal button rendering logic -->
+
   <script src="script.js"></script>
 </body>
 </html>
-<!-- partial -->
-  <script  src="./script.js"></script>
+    <script  src="./script.js"></script>
 
-</body>
+  </body>
+  
 </html>
