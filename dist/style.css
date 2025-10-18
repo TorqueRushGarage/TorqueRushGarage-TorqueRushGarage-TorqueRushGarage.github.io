@@ -1,4 +1,3 @@
-/* script.css */
 :root {
   --bg-main: #121214;
   --bg-panel: #1e1f21;
@@ -13,7 +12,6 @@
   --radius: 10px;
   --transition: 0.4s ease;
 }
-
 body {
   margin: 0;
   font-family: "Orbitron", sans-serif;
@@ -34,22 +32,23 @@ body {
     background-size: cover;
   }
 }
-
-.section-title-centered {
-  text-align: center !important;
-}
+.section-title-centered { text-align: center !important; }
 
 /* HERO HEADER */
 #hero {
   position: relative;
-  height: 50vh;
+  height: 100vh;
   overflow: hidden;
 }
 .hero-bg {
-  background: none;
+  background: url("https://www.dropbox.com/scl/fi/e7x2mjxqh666i4lca1aly/DEEEEPPP.webp?rlkey=sgefyr74veexk0a9gtxr8u5ld&st=ilmfpg0b&raw=1")
+    center center/cover no-repeat;
+  filter: brightness(0.68) contrast(1.08);
   position: absolute;
   inset: 0;
   z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 .hero-overlay {
   position: absolute;
@@ -63,15 +62,15 @@ body {
 }
 .hero-content {
   position: relative;
-  top: .05%;
+  z-index: 3;
+  top: 50%;
   transform: translateY(-50%);
   text-align: center;
-  z-index: 3;
   opacity: 0;
   animation: fadeInUp 1s ease-out forwards;
 }
 .main-hero-title {
-  font-size: 2.8rem;
+  font-size: 3.6rem;
   color: var(--accent-red);
   text-shadow: 0 0 8px rgba(255, 43, 43, 0.7);
 }
@@ -205,7 +204,7 @@ nav#navbar.solid {
   align-items: center;
   font-size: 1em;
 }
-.cart-total {
+#cart-total {
   text-align: right;
   margin-top: 1em;
   font-size: 1.13em;
@@ -260,6 +259,7 @@ nav#navbar.solid {
   color: gold;
   text-align: center;
 }
+
 .fade-section {
   opacity: 0;
   transform: translateY(40px);
@@ -304,7 +304,8 @@ nav#navbar.solid {
 .why-feature-desc {
   color: var(--accent-ice);
   text-align: center;
-  margin: 0.1em 0;
+  margin-bottom: 0.1em;
+  margin-top: 0.1em;
   font-size: 1.07em;
 }
 @media (max-width: 660px) {
@@ -416,6 +417,8 @@ nav#navbar.solid {
 .custom-intro span.blue-highlight {
   color: var(--accent-ice);
 }
+
+/* Special coaching color classes for parenthesis/red/icy-blue hybrid */
 .text-red {
   color: var(--accent-red) !important;
 }
@@ -423,7 +426,6 @@ nav#navbar.solid {
   color: var(--accent-ice) !important;
 }
 
-/* Main Highlights & Photos */
 .highlights-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -452,32 +454,6 @@ nav#navbar.solid {
   height: 100%;
 }
 
-/* V.R.A Highlights 4×3 grid */
-.vra-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin: 2rem auto;
-  max-width: 960px;
-}
-.vra-card {
-  position: relative;
-  overflow: hidden;
-  background: #1a1b1d;
-  border-radius: var(--radius);
-  min-height: 0;
-}
-.vra-card img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.vra-card.empty {
-  visibility: hidden;
-}
-
-/* Contact Form */
 #contact-form {
   max-width: none;
   width: 100%;
@@ -511,7 +487,6 @@ nav#navbar.solid {
   background: #005f9e;
 }
 
-/* Checkout Buttons */
 .checkout-btn.paypal {
   background: var(--accent-blue);
 }
@@ -532,14 +507,10 @@ nav#navbar.solid {
   .highlights-grid {
     grid-template-columns: 1fr 1fr;
   }
-  .vra-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 @media (max-width: 600px) {
   .pricing-grid,
-  .highlights-grid,
-  .vra-grid {
+  .highlights-grid {
     grid-template-columns: 1fr;
     gap: 0.7rem;
   }
@@ -564,35 +535,251 @@ nav#navbar.solid {
     transform: translateY(0);
   }
 }
-#paypal-button-container {
-  margin-top: 16px;
-  margin-bottom: 8px;
-}
-/* ─── DYNAMIC NEON-GRADIENT NASCAR BANNER ─── */
 
+/* ==============================
+   NASCAR 25 PRICING THEME STYLES
+   (Scoped under #nascar25)
+   ============================== */
+
+#nascar25 {
+  margin: 4rem auto;
+  max-width: 1200px;
+  text-align: center;
+}
+#nascar25 .pricing-container {
+  background: none;
+  color: #fff;
+}
+#nascar25 .pricing-title {
+  font-size: 2.4em;
+  margin-bottom: 24px;
+  color: #ffd700;
+  text-shadow: 0 0 12px #ffd700, 0 0 22px #0057b8;
+}
+#nascar25 .pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  justify-items: center;
+}
+#nascar25 .pricing-card {
+  background: linear-gradient(145deg,#1a1a1c,#0f0f11);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 16px rgba(255,255,255,.06);
+  transition: transform .25s ease,box-shadow .25s ease;
+}
+#nascar25 .pricing-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 26px rgba(255,255,255,.12);
+}
+#nascar25 .title-bg {
+  display:inline-block;
+  background:rgba(0,0,0,0.45);
+  padding:8px 14px;
+  border-radius:8px;
+  margin-bottom:8px;
+  backdrop-filter:blur(3px);
+}
+#nascar25 .pricing-card h2 {
+  font-size:1.35em;
+  margin:0;
+  padding-bottom:6px;
+  border-bottom:2px solid currentColor;
+  font-weight:700;
+}
+.series-name.cup-color{color:#1e90ff;text-shadow:0 0 8px #1e90ff,0 0 18px #0057b8;}
+.series-name.xfinity-color{color:#00ff73;text-shadow:0 0 8px #00ff73,0 0 18px #00b050;}
+.series-name.truck-color{color:#d72b2b;text-shadow:0 0 8px #d72b2b,0 0 18px #8b1a1a;}
+.series-name.arca-color{color:#ffe14f;text-shadow:0 0 8px #ffe14f,0 0 18px #ffd700;}
+.series-name.buyall-color{color:#ffe14f;text-shadow:0 0 8px #ffe14f,0 0 18px #ffd700;}
+.flash-all{display:inline-block;animation:flashAll 2.6s infinite ease-in-out;}
+@keyframes flashAll{0%{color:#ff2b2b}33%{color:#1e90ff}66%{color:#ffe14f}100%{color:#ff2b2b}}
+#nascar25 .pricing-select {
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+  background:#232329;
+  color:#fff;
+  font-size:0.95em;
+  margin-top:10px;
+}
+#nascar25 .add-btn {
+  margin-top:12px;
+  padding:10px 18px;
+  font-size:0.95em;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+  color:#fff;
+  background-image:
+    repeating-linear-gradient(45deg,#0057b8 0 30px,#b22222 30px 45px,#ffd700 45px 55px,#0057b8 55px 85px),
+    linear-gradient(45deg,rgba(255,255,255,0.08)25%,rgba(255,255,255,0)25%,rgba(255,255,255,0)50%,rgba(255,255,255,0.08)50%,rgba(255,255,255,0.08)75%,rgba(255,255,255,0)75%,rgba(255,255,255,0)100%),
+    linear-gradient(45deg,rgba(0,0,0,0.15)25%,rgba(0,0,0,0)25%,rgba(0,0,0,0)50%,rgba(0,0,0,0.15)50%,rgba(0,0,0,0.15)75%,rgba(0,0,0,0)75%,rgba(0,0,0,0)100%);
+  background-size:200% 200%,12px 12px,12px 12px;
+  transition:background-position .45s ease,transform .18s ease;
+}
+#nascar25 .add-btn:hover { transform:scale(1.03); }
+#nascar25 .cup-theme{ border:3px solid #0057b8; background-image:linear-gradient(rgba(12,13,16,0.65),rgba(12,13,16,0.8)),url("https://i.imgur.com/tkuK4zB.jpg"); background-size:cover;background-position:center;background-blend-mode:overlay;}
+#nascar25 .xfinity-theme{ border:3px solid #00b050; background-image:linear-gradient(rgba(12,13,16,0.65),rgba(12,13,16,0.8)),url("https://i.imgur.com/gUx3qQJ.jpg"); background-size:cover;background-position:center;background-blend-mode:overlay;}
+#nascar25 .truck-theme{ border:3px solid #b22222; background-image:linear-gradient(rgba(12,13,16,0.65),rgba(12,13,16,0.8)),url("https://i.imgur.com/31WBvSM.jpg"); background-size:cover;background-position:center;background-blend-mode:overlay;}
+#nascar25 .arca-theme{ border:3px solid #ffd700; background-image:linear-gradient(rgba(12,13,16,0.65),rgba(12,13,16,0.8)),url("https://i.imgur.com/VbFyIWv.jpg"); background-size:cover;background-position:center;background-blend-mode:overlay;}
+#nascar25 .buyall-theme{ border:3px solid #ffffff; animation:flashBorder 2.5s infinite ease-in-out; background-image:linear-gradient(rgba(12,13,16,0.65),rgba(12,13,16,0.8)),url("https://i.imgur.com/4Ze2jnR.jpg"); background-size:cover;background-position:center;background-blend-mode:overlay;}
+@keyframes flashBorder{0%,100%{border-color:#ffd700;box-shadow:0 0 15px rgba(255,215,0,.6);}50%{border-color:#0057b8;box-shadow:0 0 25px rgba(0,87,184,.7);}}
+
+.nascar-track-box { text-align:left; margin-top:8px; }
+.nascar-track-box label { display:flex; gap:8px; align-items:center; cursor:pointer; }
+.nascar-track-status { margin-top:8px; color:#ffd700; }
+
+/* small helper for cart flash */
+#cart-count.flash { transform: scale(1.3); transition: transform .15s ease; }
+
+/* ===== NASCAR 25 Track Selection Styling (Series-Themed) ===== */
+#nascar25 .nascar-track-box {
+  text-align: left;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px 14px;
+  width: 92%;
+  max-height: 220px;
+  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+#nascar25 .nascar-track-box label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+  cursor: pointer;
+}
+
+#nascar25 .nascar-track-box input[type="checkbox"] {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Status text under list */
+#nascar25 .nascar-track-status {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* --- CUP SERIES (Blue) --- */
+#nascar25 .cup-theme .nascar-track-box {
+  border-color: rgba(30,144,255,0.4);
+  box-shadow: 0 0 12px rgba(30,144,255,0.25);
+}
+#nascar25 .cup-theme .nascar-track-box label span {
+  color: #1e90ff !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(30,144,255,0.5);
+}
+#nascar25 .cup-theme .nascar-track-box input[type="checkbox"] {
+  accent-color: #1e90ff;
+}
+#nascar25 .cup-theme .nascar-track-status {
+  color: #1e90ff;
+}
+
+/* --- XFINITY SERIES (Green) --- */
+#nascar25 .xfinity-theme .nascar-track-box {
+  border-color: rgba(0,255,115,0.4);
+  box-shadow: 0 0 12px rgba(0,255,115,0.25);
+}
+#nascar25 .xfinity-theme .nascar-track-box label span {
+  color: #00ff73 !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(0,255,115,0.5);
+}
+#nascar25 .xfinity-theme .nascar-track-box input[type="checkbox"] {
+  accent-color: #00ff73;
+}
+#nascar25 .xfinity-theme .nascar-track-status {
+  color: #00ff73;
+}
+
+/* --- TRUCK SERIES (Red) --- */
+#nascar25 .truck-theme .nascar-track-box {
+  border-color: rgba(255,42,42,0.4);
+  box-shadow: 0 0 12px rgba(255,42,42,0.25);
+}
+#nascar25 .truck-theme .nascar-track-box label span {
+  color: #ff2a2a !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255,42,42,0.5);
+}
+#nascar25 .truck-theme .nascar-track-box input[type="checkbox"] {
+  accent-color: #ff2a2a;
+}
+#nascar25 .truck-theme .nascar-track-status {
+  color: #ff2a2a;
+}
+
+/* --- ARCA SERIES (Yellow) --- */
+#nascar25 .arca-theme .nascar-track-box {
+  border-color: rgba(255,215,0,0.4);
+  box-shadow: 0 0 12px rgba(255,215,0,0.25);
+}
+#nascar25 .arca-theme .nascar-track-box label span {
+  color: #ffd700 !important;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255,215,0,0.5);
+}
+#nascar25 .arca-theme .nascar-track-box input[type="checkbox"] {
+  accent-color: #ffd700;
+}
+#nascar25 .arca-theme .nascar-track-status {
+  color: #ffd700;
+}
+
+/* --- BUY ALL SERIES (Animated) --- */
+#nascar25 .buyall-theme .nascar-track-box {
+  border-color: rgba(255,255,255,0.4);
+  box-shadow: 0 0 14px rgba(255,255,255,0.3);
+}
+#nascar25 .buyall-theme .nascar-track-box label span {
+  animation: colorCycle 3s linear infinite;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+#nascar25 .buyall-theme .nascar-track-box input[type="checkbox"] {
+  accent-color: #ffffff;
+}
+#nascar25 .buyall-theme .nascar-track-status {
+  animation: colorCycle 3s linear infinite;
+}
+@keyframes colorCycle {
+  0%   { color: #1e90ff; }
+  33%  { color: #ff2a2a; }
+  66%  { color: #ffd700; }
+  100% { color: #1e90ff; }
+}
+/* ─── DYNAMIC NEON-GRADIENT NASCAR / V.R.A. BANNER ─── */
 .leaderboard-banner {
   position: fixed;
-  top: 962px; /* adjust to your navbar height */
+  top: var(--y, 269px);           /* <— each instance can set its own Y */
   left: 0;
   width: 100%;
-  height: 12px; /* banner height */
+  height: 40px;
   overflow: hidden;
   z-index: 1000;
   background: linear-gradient(270deg, #1a1a1a, #ff004c, #1a1a1a, #00e5ff);
   background-size: 800% 800%;
   animation: bgGradient 25s ease infinite;
 }
-
 @keyframes bgGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .marquee {
@@ -600,7 +787,6 @@ nav#navbar.solid {
   height: 100%;
   position: relative;
 }
-
 .marquee__inner {
   display: flex;
   align-items: center;
@@ -609,7 +795,10 @@ nav#navbar.solid {
   min-width: 200%;
   animation: scrollLeft 20s linear infinite;
 }
-
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
 .marquee__inner span {
   display: inline-block;
   margin: 0 2rem;
@@ -618,40 +807,25 @@ nav#navbar.solid {
   font-weight: 700;
   color: #fff;
   text-transform: uppercase;
-  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 0, 76, 0.7),
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(255, 0, 76, 0.7),
     0 0 16px rgba(0, 229, 255, 0.6);
   animation: neonFlicker 2s ease-in-out infinite alternate;
 }
-
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-/* Neon-flicker effect */
 @keyframes neonFlicker {
   from {
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.9),
-      0 0 12px rgba(255, 0, 76, 0.8), 0 0 24px rgba(0, 229, 255, 0.7);
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.9),
+      0 0 12px rgba(255, 0, 76, 0.8),
+      0 0 24px rgba(0, 229, 255, 0.7);
   }
   to {
-    text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 4px rgba(255, 0, 76, 0.5),
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.6),
+      0 0 4px rgba(255, 0, 76, 0.5),
       0 0 8px rgba(0, 229, 255, 0.5);
   }
 }
-
-/* ── To flip scroll to LEFT→RIGHT ── 
-   replace `animation: scrollLeft…` above with:
-      animation: scrollRight 25s linear infinite;
-   and uncomment:
-*/
-/*
-@keyframes scrollRight {
-  0%   { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-*/
+/* Force all per-card PayPal placeholders to stay hidden */
+.pricing-card .paypal-button { display: none !important; }
