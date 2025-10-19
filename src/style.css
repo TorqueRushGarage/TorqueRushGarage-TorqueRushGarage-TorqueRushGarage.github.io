@@ -766,7 +766,7 @@ nav#navbar.solid {
 /* ─── DYNAMIC NEON-GRADIENT NASCAR / V.R.A. BANNER ─── */
 .leaderboard-banner {
   position: fixed;
-  top: var(--y, 67.7px);           /* <— each instance can set its own Y */
+  top: var(--y, 69px);           /* <— each instance can set its own Y */
   left: 0;
   width: 100%;
   height: 40px;
