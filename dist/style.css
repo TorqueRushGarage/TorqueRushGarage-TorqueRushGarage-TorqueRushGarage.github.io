@@ -769,7 +769,7 @@ nav#navbar.solid {
   top: var(--y, 68px);           /* <— each instance can set its own Y */
   left: 0;
   width: 100%;
-  height: 30px;
+  height: 18px;
   overflow: hidden;
   z-index: 1000;
   background: linear-gradient(270deg, #1a1a1a, #ff004c, #1a1a1a, #00e5ff);
