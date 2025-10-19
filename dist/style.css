@@ -829,3 +829,23 @@ nav#navbar.solid {
 }
 /* Force all per-card PayPal placeholders to stay hidden */
 .pricing-card .paypal-button { display: none !important; }
+* Force all per-card PayPal placeholders to stay hidden */
+.pricing-card .paypal-button { display: none !important; }
+.spotify-section {
+  padding: 3rem 1rem;
+  background-color: var(--bg-panel);
+  text-align: center;
+}
+
+.spotify-section .section-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+}
+
+.spotify-player {
+  max-width: 600px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border-radius: 12px;
+}
