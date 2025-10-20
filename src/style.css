@@ -25,13 +25,15 @@ body {
   scroll-behavior: smooth;
 }
 
-/* On mobile, disable fixed attachment to prevent distortion */
+/* On mobile, disable fixed attachment to prevent zoom or crop */
 @media (max-width: 767px) {
   body {
     background-attachment: scroll;
     background-size: cover;
+    background-position: center center;
   }
 }
+
 .section-title-centered {
   text-align: center !important;
 }
