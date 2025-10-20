@@ -41,7 +41,7 @@ body {
   overflow: hidden;
 }
 .hero-bg {
-  background: url("https://i.postimg.cc/s2qyDFMX/GAr-Qr08-XQAAjd5j.jpg")
+  background: url("https://assets.codepen.io/14563680/GArQr08XQAAjd5j.jpg")
     center center/cover no-repeat;
   filter: brightness(0.68) contrast(1.08);
   position: absolute;
