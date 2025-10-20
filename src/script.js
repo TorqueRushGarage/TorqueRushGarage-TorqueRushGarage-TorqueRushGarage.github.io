@@ -220,16 +220,46 @@ function updateCartCount() {
   el.textContent = cart.length;
   el.style.display = cart.length > 0 ? "inline-block" : "none";
 }
+
 function composeCartName(product, extra) {
+  let trackDisplay = "";
+
+  // Detect "Full / Complete / All" across possible fields
+  const isFullPackage = /full|complete|all/i.test(
+    (extra?.tier || "") + " " + (extra?.option || "") + " " + (product?.name || "")
+  );
+
+  if (Array.isArray(extra?.tracks) && extra.tracks.length > 0) {
+    // Try to infer series key to compare lengths
+    const up = (product.series || product.name || "").toUpperCase();
+    const seriesKey =
+      up.includes("XFINITY") ? "XFINITY SERIES" :
+      up.includes("TRUCK")   ? "TRUCK SERIES"   :
+      up.includes("ARCA")    ? "ARCA SERIES"    :
+      up.includes("CUP")     ? "CUP SERIES"     : "";
+
+    const totalSeriesTracks = NASCAR25_SERIES_TRACKS[seriesKey]?.length || 0;
+
+    if (isFullPackage || (totalSeriesTracks > 0 && extra.tracks.length === totalSeriesTracks)) {
+      trackDisplay = "(ALL Tracks in Package)";
+    } else {
+      trackDisplay = `(${extra.tracks.length} track${extra.tracks.length === 1 ? "" : "s"})`;
+    }
+  } else if (isFullPackage) {
+    // Full package without explicit tracks array
+    trackDisplay = "(ALL Tracks in Package)";
+  }
+
   return [
     product.name,
     extra?.tier ? `+ ${extra.tier}` : "",
     extra?.game || "",
     extra?.vehicle || "",
     extra?.track || "",
-    extra?.tracks && extra.tracks.length ? `(${extra.tracks.length} tracks)` : ""
+    trackDisplay
   ].filter(Boolean).join(" / ");
 }
+
 function toUSD(n) {
   return (Math.round(Number(n) * 100) / 100).toFixed(2);
 }
@@ -267,6 +297,7 @@ function renderCart() {
   renderPayPalButton();   // render Smart Buttons for full cart
   updateCartCount();
 }
+
 window.removeCart = function(i) {
   cart.splice(i, 1);
   renderCart();
@@ -333,6 +364,7 @@ function renderPricing() {
 
   animatePricingCards();
 }
+
 function animatePricingCards() {
   if (!window.gsap) return;
   gsap.utils.toArray(".pricing-card").forEach(card => {
@@ -377,6 +409,7 @@ window.onBundleGame = idx => {
     };
   };
 };
+
 window.addBundleTier = idx => {
   const game    = document.getElementById(`bundle-game-${idx}`).value;
   const vehicle = document.getElementById(`bundle-vehicle-${idx}`).value;
@@ -430,6 +463,7 @@ window.onGameFlat = idx => {
     trackSel.onchange = () => btn.disabled = false;
   };
 };
+
 window.addFlat = idx => {
   const game    = document.getElementById(`game-flat-${idx}`).value;
   const vehicle = document.getElementById(`car-flat-${idx}`).value;
@@ -572,7 +606,7 @@ async function renderPayPalButton() {
 }
 
 /* ===========================================================
-   NASCAR 25 — track selection UI + add logic (unchanged)
+   NASCAR 25 — track selection UI + add logic (unchanged except noted)
 =========================================================== */
 const NASCAR25_SERIES_TRACKS = {
   "CUP SERIES": [ "Bristol Motor Speedway","Charlotte Motor Speedway","Charlotte Road Course","Chicago Street Course","Circuit of the Americas","Darlington Raceway","Daytona International Speedway","Dover Motor Speedway","EchoPark Speedway","Homestead-Miami Speedway","Indianapolis Motor Speedway","Iowa Speedway","Kansas Speedway","Las Vegas Motor Speedway","Martinsville Speedway","Michigan Speedway","Nashville Superspeedway","New Hampshire Motor Speedway","North Wilkesboro Speedway","Phoenix Raceway","Pocono Raceway","Richmond Raceway","Sonoma Raceway","Talladega Superspeedway","Texas Motor Speedway","Watkins Glen International","World Wide Technology Raceway" ],
@@ -587,6 +621,7 @@ function nascar25PackageLimit(optionLabel) {
   if (/10\b|10-Track/i.test(optionLabel)) return 10;
   return Infinity; // Full series
 }
+
 function renderNascarTrackBox(card, seriesKey) {
   const select = card.querySelector(".pricing-select");
   const box = card.querySelector(".nascar-track-box");
@@ -614,6 +649,7 @@ function renderNascarTrackBox(card, seriesKey) {
     const intro = document.createElement("div");
     intro.innerHTML = `<strong>Full Series Selected — ALL tracks in package will be included.</strong>`;
     box.appendChild(intro);
+
     const list = document.createElement("div");
     list.style.maxHeight = "160px";
     list.style.overflowY = "auto";
@@ -623,8 +659,12 @@ function renderNascarTrackBox(card, seriesKey) {
     list.style.borderRadius = "6px";
     list.innerHTML = seriesTracks.map(t => `<div style="padding:4px 0;">✔ ${t}</div>`).join("");
     box.appendChild(list);
+
     box.dataset.selected = JSON.stringify(seriesTracks.slice());
-    status.textContent = `Tracks included: ${seriesTracks.length}/${seriesTracks.length}`;
+
+    // >>> CHANGE: exact phrase required under the dropdown for full series
+    status.textContent = "(ALL Tracks in Package)";
+
     box.style.display = "block";
     return;
   }
@@ -685,6 +725,7 @@ function renderNascarTrackBox(card, seriesKey) {
   grid.addEventListener("change", refresh);
   refresh();
 }
+
 function handleNascarAdd(card, seriesKey) {
   const select = card.querySelector(".pricing-select");
   const optionValue = select.value;
@@ -712,14 +753,14 @@ function handleNascarAdd(card, seriesKey) {
   }
 
   const productName = `${seriesKey} — ${optionText}`;
-  const displayName = composeCartName({ name: productName }, { tracks });
+  const displayName = composeCartName({ name: productName, series: seriesKey }, { tracks, option: optionText });
 
   cart.push({
     kind:  "nascar25",
     id:    `nascar25-${seriesKey}-${optionValue}`,
     name:  productName,
     series: seriesKey,
-    option: optionValue,
+    option: optionText,
     price: price,
     tracks: tracks,
     displayName
@@ -734,6 +775,7 @@ function handleNascarAdd(card, seriesKey) {
     setTimeout(()=>{ btn.disabled=false; btn.textContent=prev; }, 900);
   }
 }
+
 function initNascar25Integration() {
   const section = document.getElementById("nascar25");
   if (!section) return;
