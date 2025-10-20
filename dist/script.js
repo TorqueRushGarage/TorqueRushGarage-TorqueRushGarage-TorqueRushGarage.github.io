@@ -612,7 +612,7 @@ function renderNascarTrackBox(card, seriesKey) {
 
   if (isFull) {
     const intro = document.createElement("div");
-    intro.innerHTML = `<strong>Full Series Selected — ${seriesTracks.length}ALL tracks in package will be included.</strong>`;
+    intro.innerHTML = `<strong>Full Series Selected — ${seriesTracks.length} tracks will be included.</strong>`;
     box.appendChild(intro);
     const list = document.createElement("div");
     list.style.maxHeight = "160px";
@@ -624,7 +624,7 @@ function renderNascarTrackBox(card, seriesKey) {
     list.innerHTML = seriesTracks.map(t => `<div style="padding:4px 0;">✔ ${t}</div>`).join("");
     box.appendChild(list);
     box.dataset.selected = JSON.stringify(seriesTracks.slice());
-    status.textContent = `Tracks included: ${seriesTracks.length}/${seriesTracks.length}
+    status.textContent = `Tracks included: ${seriesTracks.length}/${seriesTracks.length}`;
     box.style.display = "block";
     return;
   }
