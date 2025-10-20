@@ -624,7 +624,7 @@ function renderNascarTrackBox(card, seriesKey) {
     list.innerHTML = seriesTracks.map(t => `<div style="padding:4px 0;">✔ ${t}</div>`).join("");
     box.appendChild(list);
     box.dataset.selected = JSON.stringify(seriesTracks.slice());
-    status.textContent = `Tracks included: 91 Tracks / 91 Qualifying Setups / 91 Race Setups / 182 Setups Total`;
+    status.textContent = `Tracks included: ${seriesTracks.length}/${seriesTracks.length}
     box.style.display = "block";
     return;
   }
