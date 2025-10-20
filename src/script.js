@@ -612,7 +612,7 @@ function renderNascarTrackBox(card, seriesKey) {
 
   if (isFull) {
     const intro = document.createElement("div");
-    intro.innerHTML = `<strong>Full Series Selected — ${seriesTracks.length} tracks will be included.</strong>`;
+    intro.innerHTML = `<strong>Full Series Selected — ALL tracks in package will be included.</strong>`;
     box.appendChild(intro);
     const list = document.createElement("div");
     list.style.maxHeight = "160px";
