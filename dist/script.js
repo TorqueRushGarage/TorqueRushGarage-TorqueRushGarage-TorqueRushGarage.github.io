@@ -24,7 +24,6 @@ async function renderPayPalButton() {
   btnContainer.innerHTML = "";
   if (msgEl) msgEl.textContent = "";
 
-  // If cart is empty, nothing to render
   if (!Array.isArray(cart) || cart.length === 0) return;
 
   await paypalReady;
@@ -34,51 +33,111 @@ async function renderPayPalButton() {
     return;
   }
 
-  // Compute total for the entire cart
+  const items = cart.map((it, i) => {
+    let name = it.displayName || it.name || `Item ${i + 1}`;
+    if (name.length > 127) name = name.slice(0, 124) + "...";
+
+    return {
+      name,
+      unit_amount: {
+        currency_code: "USD",
+        value: Number(it.price || 0).toFixed(2)
+      },
+      quantity: "1",
+      category: "DIGITAL_GOODS"
+    };
+  });
+
   const total = cart.reduce((sum, x) => {
     const p = Number(x?.price);
     return sum + (Number.isFinite(p) ? p : 0);
   }, 0);
+
+  let orderDescription = cart
+    .map((it, i) => (it.displayName || it.name || `Item ${i + 1}`))
+    .join(" | ");
+
+  if (orderDescription.length > 127) {
+    orderDescription = orderDescription.slice(0, 124) + "...";
+  }
+
+  let customId = JSON.stringify(
+  cart.map((it) => ({
+    kind: it.kind || "",
+    id: it.id || "",
+    name: it.name || "",
+    displayName: it.displayName || "",
+    series: it.series || "",
+    packageType: it.packageType || it.option || "",
+    tracks: Array.isArray(it.tracks) ? it.tracks : [],
+    game: it.game || "",
+    vehicle: it.vehicle || "",
+    track: it.track || "",
+    notes: it.notes || "",
+    price: Number(it.price || 0).toFixed(2)
+  }))
+);
+
+  if (customId.length > 255) {
+    customId = customId.slice(0, 252) + "...";
+  }
 
   try {
     paypal
       .Buttons({
         style: { layout: "vertical", height: 45 },
 
-        // Create an order for the WHOLE CART
         createOrder: (data, actions) => {
           return actions.order.create({
+            intent: "CAPTURE",
             purchase_units: [
               {
-                description: "Torque Rush Garage — Cart",
+                description: orderDescription,
+                custom_id: customId,
                 amount: {
                   currency_code: "USD",
-                  value: total.toFixed(2)
-                }
+                  value: total.toFixed(2),
+                  breakdown: {
+                    item_total: {
+                      currency_code: "USD",
+                      value: total.toFixed(2)
+                    }
+                  }
+                },
+                items
               }
-            ]
+            ],
+            application_context: {
+              shipping_preference: "NO_SHIPPING",
+              user_action: "PAY_NOW",
+              brand_name: "Torque Rush Garage"
+            }
           });
         },
 
-        // Capture the payment
         onApprove: async (data, actions) => {
           try {
             const details = await actions.order.capture();
-            if (msgEl)
+            console.log("PAYPAL CAPTURE DETAILS:", details);
+            console.log("CART FULFILLMENT DATA:", cart);
+
+            if (msgEl) {
               msgEl.textContent = "Payment complete. Order " + details.id;
-            // Clear the cart and re-render
+            }
+
             cart = [];
             renderCart();
           } catch (e) {
-            if (msgEl)
+            if (msgEl) {
               msgEl.textContent = "Capture failed: " + (e?.message || e);
+            }
           }
         },
 
-        // Show PayPal errors in the modal
         onError: (err) => {
-          if (msgEl)
+          if (msgEl) {
             msgEl.textContent = "PayPal error: " + (err?.message || err);
+          }
         }
       })
       .render("#paypal-button-container");
@@ -88,7 +147,6 @@ async function renderPayPalButton() {
     if (msgEl) msgEl.textContent = e?.message || String(e);
   }
 }
-
 /* -------------------------
    YOUR PRODUCTS & TIERS
 ------------------------- */
