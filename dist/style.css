@@ -943,7 +943,7 @@ nav#navbar.solid {
   height: 100%;
   white-space: nowrap;
   min-width: 200%;
-  animation: scrollLeft 15s linear infinite;
+  animation: scrollLeft 7s linear infinite;
 }
 @keyframes scrollLeft {
   0% {
@@ -963,7 +963,7 @@ nav#navbar.solid {
   text-transform: uppercase;
   text-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 0, 76, 0.7),
     0 0 16px rgba(0, 229, 255, 0.6);
-  animation: neonFlicker 7s ease-in-out infinite alternate;
+  animation: neonFlicker 3s ease-in-out infinite alternate;
 }
 @keyframes neonFlicker {
   from {
