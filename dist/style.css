@@ -997,3 +997,37 @@ nav#navbar.solid {
   overflow: hidden;
   border-radius: 12px;
 }
+#pricing-tiers .pricing-card:nth-child(1) {
+  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+  url("https://i.imgur.com/K1yir9x.jpg");
+}
+
+#pricing-tiers .pricing-card:nth-child(2) {
+  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+  url("https://i.imgur.com/mzJaS2k.jpg");
+}
+
+#pricing-tiers .pricing-card:nth-child(3) {
+  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+  url("https://i.imgur.com/NUa58a7.jpg");
+}
+
+#pricing-tiers .pricing-card:nth-child(4) {
+  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+  url("https://i.imgur.com/qpJLDtp.jpg");
+}
+
+#pricing-tiers .pricing-card:nth-child(5) {
+  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+  url("https://i.imgur.com/BRhiS4B.jpg");
+}
+
+#pricing-tiers .pricing-card:nth-child(6) {
+  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+  url("https://i.imgur.com/KPKoHfA.jpg");
+}
+
+#pricing-tiers .pricing-card:nth-child(7) {
+  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+  url("https://i.imgur.com/uDvBg9r.jpg");
+}
