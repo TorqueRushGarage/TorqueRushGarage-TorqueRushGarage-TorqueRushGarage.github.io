@@ -918,7 +918,7 @@ nav#navbar.solid {
   z-index: 1000;
   background: linear-gradient(270deg, #1a1a1a, #ff004c, #1a1a1a, #00e5ff);
   background-size: 800% 800%;
-  animation: bgGradient 30s ease infinite;
+  animation: bgGradient 15s ease infinite;
 }
 @keyframes bgGradient {
   0% {
@@ -943,7 +943,7 @@ nav#navbar.solid {
   height: 100%;
   white-space: nowrap;
   min-width: 200%;
-  animation: scrollLeft 20s linear infinite;
+  animation: scrollLeft 15s linear infinite;
 }
 @keyframes scrollLeft {
   0% {
