@@ -997,37 +997,48 @@ nav#navbar.solid {
   overflow: hidden;
   border-radius: 12px;
 }
+
+/* FIXED NON-NASCAR PRICING TIER IMAGE FIT */
+#pricing-tiers .pricing-card {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-color: #1a1b1d;
+  background-origin: content-box;
+}
+
 #pricing-tiers .pricing-card:nth-child(1) {
-  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
-  url("https://i.imgur.com/K1yir9x.jpg");
+  background-image:
+    linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+    url("https://i.imgur.com/UIHbsAH.jpg");
 }
 
 #pricing-tiers .pricing-card:nth-child(2) {
-  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
-  url("https://i.imgur.com/mzJaS2k.jpg");
+  background-image:
+    linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+    url("https://i.imgur.com/1JktZDD.jpg");
 }
 
 #pricing-tiers .pricing-card:nth-child(3) {
-  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
-  url("https://i.imgur.com/NUa58a7.jpg");
+  background-image:
+    linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+    url("https://i.imgur.com/oGjIa6B.jpg");
 }
 
 #pricing-tiers .pricing-card:nth-child(4) {
-  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
-  url("https://i.imgur.com/qpJLDtp.jpg");
+  background-image:
+    linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+    url("https://i.imgur.com/S1Hodvm.jpg");
 }
 
 #pricing-tiers .pricing-card:nth-child(5) {
-  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
-  url("https://i.imgur.com/BRhiS4B.jpg");
+  background-image:
+    linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+    url("https://i.imgur.com/l1YxzM2.jpg");
 }
 
 #pricing-tiers .pricing-card:nth-child(6) {
-  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
-  url("https://i.imgur.com/KPKoHfA.jpg");
-}
-
-#pricing-tiers .pricing-card:nth-child(7) {
-  background-image: linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
-  url("https://i.imgur.com/uDvBg9r.jpg");
+  background-image:
+    linear-gradient(rgba(12,13,16,0.35), rgba(12,13,16,0.55)),
+    url("https://i.imgur.com/6EOuQ6i.jpg");
 }
